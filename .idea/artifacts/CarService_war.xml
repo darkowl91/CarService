@@ -1,14 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="CarService:war">
+  <artifact type="war" name="CarService:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="CarService.war">
       <element id="artifact" artifact-name="CarService:war exploded" />
-      <element id="directory" name="WEB-INF">
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="hibernate-4.2.2" />
-          <element id="library" level="project" name="spring-security-3.1.4" />
-        </element>
-      </element>
     </root>
   </artifact>
 </component>
