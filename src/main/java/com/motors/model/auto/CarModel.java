@@ -10,4 +10,20 @@ import com.motors.model.BaseEntity;
 public class CarModel extends BaseEntity {
     private CarBrand brand;
     private String modelName;
+
+    public CarBrand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(CarBrand brand) {
+        this.brand = brand;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
 }
