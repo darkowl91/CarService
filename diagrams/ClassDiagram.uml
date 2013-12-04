@@ -3,74 +3,74 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="646.0" y="208.0">com.motors.model.auto.BodyType</node>
-    <node x="1683.0" y="178.0">com.motors.model.advertisement.Advt</node>
-    <node x="1475.0" y="178.0">com.motors.model.acount.Phone</node>
-    <node x="971.0" y="198.0">com.motors.model.auto.CarModel</node>
-    <node x="801.0" y="198.0">com.motors.model.acount.Authorities</node>
-    <node x="1142.0" y="118.0">com.motors.model.acount.User</node>
-    <node x="438.0" y="198.0">com.motors.model.auto.CarBrand</node>
-    <node x="831.5" y="0.0">com.motors.model.BaseEntity</node>
+    <node x="857.0" y="198.0">com.motors.model.auto.BodyType</node>
+    <node x="1744.0" y="198.0">com.motors.model.account.Authorities</node>
+    <node x="448.0" y="168.0">com.motors.model.advertisement.Advt</node>
+    <node x="1032.0" y="198.0">com.motors.model.auto.CarModel</node>
+    <node x="1203.0" y="118.0">com.motors.model.account.User</node>
+    <node x="649.0" y="198.0">com.motors.model.auto.CarBrand</node>
+    <node x="890.0" y="0.0">com.motors.model.BaseEntity</node>
     <node x="186.0" y="158.0">com.motors.model.auto.Car</node>
     <node x="0.0" y="198.0">com.motors.model.auto.CarPicture</node>
     <node x="0.0" y="391.0">com.motors.model.auto.Transmission</node>
+    <node x="1536.0" y="178.0">com.motors.model.account.Phone</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.motors.model.auto.CarModel" target="com.motors.model.BaseEntity">
+    <edge source="com.motors.model.account.Authorities" target="com.motors.model.BaseEntity">
       <point x="0.0" y="-34.0" />
-      <point x="1046.5" y="98.0" />
-      <point x="885.8888888888889" y="98.0" />
-      <point x="9.888888888888914" y="24.0" />
+      <point x="1819.0" y="68.0" />
+      <point x="974.0555555555555" y="68.0" />
+      <point x="39.55555555555554" y="24.0" />
+    </edge>
+    <edge source="com.motors.model.account.Phone" target="com.motors.model.BaseEntity">
+      <point x="0.0" y="-54.0" />
+      <point x="1630.0" y="78.0" />
+      <point x="964.1666666666666" y="78.0" />
+      <point x="29.66666666666663" y="24.0" />
     </edge>
     <edge source="com.motors.model.auto.BodyType" target="com.motors.model.BaseEntity">
-      <point x="0.0" y="-24.0" />
-      <point x="713.5" y="98.0" />
-      <point x="866.1111111111111" y="98.0" />
-      <point x="-9.888888888888914" y="24.0" />
+      <point x="0.0" y="-34.0" />
+      <point x="0.0" y="24.0" />
+    </edge>
+    <edge source="com.motors.model.auto.CarModel" target="com.motors.model.BaseEntity">
+      <point x="0.0" y="-34.0" />
+      <point x="1107.5" y="98.0" />
+      <point x="944.3888888888889" y="98.0" />
+      <point x="9.888888888888914" y="24.0" />
     </edge>
     <edge source="com.motors.model.auto.Car" target="com.motors.model.BaseEntity">
       <point x="0.0" y="-74.0" />
-      <point x="302.0" y="78.0" />
-      <point x="846.3333333333334" y="78.0" />
+      <point x="307.0" y="78.0" />
+      <point x="904.8333333333334" y="78.0" />
       <point x="-29.66666666666663" y="24.0" />
-    </edge>
-    <edge source="com.motors.model.acount.Phone" target="com.motors.model.BaseEntity">
-      <point x="0.0" y="-54.0" />
-      <point x="1569.0" y="78.0" />
-      <point x="905.6666666666666" y="78.0" />
-      <point x="29.66666666666663" y="24.0" />
     </edge>
     <edge source="com.motors.model.auto.CarPicture" target="com.motors.model.BaseEntity">
       <point x="0.0" y="-34.0" />
       <point x="83.0" y="68.0" />
-      <point x="836.4444444444445" y="68.0" />
+      <point x="894.9444444444445" y="68.0" />
       <point x="-39.55555555555554" y="24.0" />
     </edge>
-    <edge source="com.motors.model.acount.Authorities" target="com.motors.model.BaseEntity">
-      <point x="0.0" y="-34.0" />
-      <point x="0.0" y="24.0" />
-    </edge>
     <edge source="com.motors.model.advertisement.Advt" target="com.motors.model.BaseEntity">
-      <point x="0.0" y="-54.0" />
-      <point x="1763.5" y="68.0" />
-      <point x="915.5555555555555" y="68.0" />
-      <point x="39.55555555555554" y="24.0" />
-    </edge>
-    <edge source="com.motors.model.acount.User" target="com.motors.model.BaseEntity">
-      <point x="0.0" y="-114.0" />
-      <point x="1298.5" y="88.0" />
-      <point x="895.7777777777778" y="88.0" />
-      <point x="19.77777777777783" y="24.0" />
+      <point x="0.0" y="-64.0" />
+      <point x="538.5" y="88.0" />
+      <point x="914.7222222222222" y="88.0" />
+      <point x="-19.77777777777783" y="24.0" />
     </edge>
     <edge source="com.motors.model.auto.CarBrand" target="com.motors.model.BaseEntity">
       <point x="0.0" y="-34.0" />
-      <point x="532.0" y="88.0" />
-      <point x="856.2222222222222" y="88.0" />
-      <point x="-19.77777777777783" y="24.0" />
+      <point x="743.0" y="98.0" />
+      <point x="924.6111111111111" y="98.0" />
+      <point x="-9.888888888888914" y="24.0" />
+    </edge>
+    <edge source="com.motors.model.account.User" target="com.motors.model.BaseEntity">
+      <point x="0.0" y="-114.0" />
+      <point x="1359.5" y="88.0" />
+      <point x="954.2777777777778" y="88.0" />
+      <point x="19.77777777777783" y="24.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.5622317596566524" x="921.9999999999999" y="239.5" />
+  <settings layout="Hierarchic Group" zoom="0.5282131661442007" x="946.9999999999999" y="249.5" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
