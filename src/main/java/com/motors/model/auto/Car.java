@@ -2,40 +2,31 @@ package com.motors.model.auto;
 
 import com.motors.model.BaseEntity;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 
-/**
- * User: Owl
- * Date: 03.12.13
- * Time: 23:35
- */
+@Entity
+@Table(name = "CAR", schema = "carservice")
 public class Car extends BaseEntity {
-    private CarBrand brand;
-    private Date pduceYear;
+    private Date produceYear;
     private BigDecimal price;
     private CarModel model;
     private BodyType body;
     private Transmission transmission;
     private List<CarPicture> pictures;
 
-    public CarBrand getBrand() {
-        return brand;
+    @Column(name = "PRODUCE_YEAR")
+    public Date getProduceYear() {
+        return produceYear;
     }
 
-    public void setBrand(CarBrand brand) {
-        this.brand = brand;
+    public void setProduceYear(Date pauseYear) {
+        this.produceYear = pauseYear;
     }
 
-    public Date getPduceYear() {
-        return pduceYear;
-    }
-
-    public void setPduceYear(Date pduceYear) {
-        this.pduceYear = pduceYear;
-    }
-
+    @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
@@ -44,6 +35,7 @@ public class Car extends BaseEntity {
         this.price = price;
     }
 
+    @ManyToOne
     public CarModel getModel() {
         return model;
     }
@@ -52,6 +44,7 @@ public class Car extends BaseEntity {
         this.model = model;
     }
 
+    @OneToOne
     public BodyType getBody() {
         return body;
     }
@@ -60,6 +53,7 @@ public class Car extends BaseEntity {
         this.body = body;
     }
 
+    @Column(name = "TRANSMISSION")
     public Transmission getTransmission() {
         return transmission;
     }
@@ -68,6 +62,7 @@ public class Car extends BaseEntity {
         this.transmission = transmission;
     }
 
+    @OneToMany
     public List<CarPicture> getPictures() {
         return pictures;
     }

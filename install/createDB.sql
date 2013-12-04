@@ -1,0 +1,1 @@
+CREATE DATABASE IF NOT EXISTS CarService character set utf8;

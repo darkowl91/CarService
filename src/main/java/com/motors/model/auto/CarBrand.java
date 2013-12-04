@@ -2,13 +2,12 @@ package com.motors.model.auto;
 
 import com.motors.model.BaseEntity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 
-/**
- * User: Owl
- * Date: 03.12.13
- * Time: 23:40
- */
+@Entity
+@Table(name = "CAR_BRAND",schema = "carservice")
 public class CarBrand extends BaseEntity {
     private List<CarModel> models;
     private String brandName;

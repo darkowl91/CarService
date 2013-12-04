@@ -2,14 +2,16 @@ package com.motors.model.auto;
 
 import com.motors.model.BaseEntity;
 
-/**
- * User: Owl
- * Date: 03.12.13
- * Time: 23:41
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "CAR_MODEL", schema = "carservice")
 public class CarModel extends BaseEntity {
     private CarBrand brand;
     private String modelName;
+
 
     public CarBrand getBrand() {
         return brand;
@@ -19,6 +21,7 @@ public class CarModel extends BaseEntity {
         this.brand = brand;
     }
 
+    @Column(name = "MODEL_NAME")
     public String getModelName() {
         return modelName;
     }

@@ -1,10 +1,15 @@
 package com.motors.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@MappedSuperclass
 public abstract class BaseEntity implements Serializable {
     private Long id;
 
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
