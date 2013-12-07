@@ -4,5 +4,11 @@
         "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
-    <definition></definition>
+    <definition name="mainLayout" template="pages/layouts/mainLayout.jsp">
+        <put-attribute name="test" value="WEB-INF/pages/tiles/header.jsp"/>
+    </definition>
+
+    <definition name="start" extends="mainLayout">
+        <!--<put-attribute name="content" value="pages/redirect.jsp"/>-->
+    </definition>
 </tiles-definitions>
