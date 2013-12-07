@@ -5,7 +5,7 @@
     <!--Allow  use  annotations-->
     <mvc:annotation-driven/>
     <!--Resources-->
-    <mvc:resources mapping="/resources/**" location="WEB-INF"/>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
     <!--controllers config-->
     <beans:import resource="controllers.xml"/>
     <!--Tiles config-->

@@ -7,6 +7,9 @@
     <definition name="mainLayout" template="/WEB-INF/pages/layouts/mainLayout.jsp">
         <put-attribute name="header" value="/WEB-INF/pages/tiles/header.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp"/>
+        <put-attribute name="css_resources" value="/WEB-INF/pages/tiles/css.jsp"/>
+        <put-attribute name="js_resources" value="/WEB-INF/pages/tiles/js.jsp"/>
+        <put-attribute name="title" expression="Car Service"/>
     </definition>
 
     <definition name="start" extends="mainLayout">
