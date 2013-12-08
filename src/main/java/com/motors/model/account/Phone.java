@@ -10,12 +10,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PHONE", schema = "carservice")
 public class Phone extends BaseEntity {
+    @Column(name = "OPERATOR")
     private String operator;
+    @Column(name = "PHONE_VALUE")
     private String phoneValue;
+    @Column(name = "PHONE_TYPE")
     private String type;
+    @ManyToOne
     private User user;
 
-    @Column(name = "OPERATOR")
+    public Phone() {
+    }
+
     public String getOperator() {
         return operator;
     }
@@ -24,7 +30,7 @@ public class Phone extends BaseEntity {
         this.operator = operator;
     }
 
-    @Column(name = "PHONE_VALUE")
+
     public String getPhoneValue() {
         return phoneValue;
     }
@@ -33,7 +39,7 @@ public class Phone extends BaseEntity {
         this.phoneValue = phoneValue;
     }
 
-    @Column(name = "PHONE_TYPE")
+
     public String getType() {
         return type;
     }
@@ -42,7 +48,7 @@ public class Phone extends BaseEntity {
         this.type = type;
     }
 
-    @ManyToOne
+
     public User getUser() {
         return user;
     }

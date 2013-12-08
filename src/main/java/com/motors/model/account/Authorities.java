@@ -10,10 +10,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "AUTHORITIES", schema = "carservice")
 public class Authorities extends BaseEntity {
+    @Column(name = "AUTHORITY")
     private String authority;
+
+    @ManyToOne
     private User user;
 
-    @Column(name = "AUTHORITY")
+    public Authorities() {
+    }
+
     public String getAuthority() {
         return authority;
     }
@@ -22,7 +27,7 @@ public class Authorities extends BaseEntity {
         this.authority = authority;
     }
 
-    @ManyToOne
+
     public User getUser() {
         return user;
     }

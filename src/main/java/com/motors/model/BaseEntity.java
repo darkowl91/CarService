@@ -5,11 +5,12 @@ import java.io.Serializable;
 
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
-    private Long id;
-
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+
     public Long getId() {
         return id;
     }

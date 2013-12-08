@@ -2,28 +2,39 @@ package com.motors.model.account;
 
 import com.motors.model.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "USER", schema = "carservise")
+@Table(name = "USER", schema = "carservice")
 public class User extends BaseEntity {
+    @Column(name = "USERNAME")
     private String username;
+    @OneToOne
+    private UserPicture picture;
+    @Column(name = "PASSWORD")
     private String password;
+    @Column(name = "ENABLED")
     private boolean enabled;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "FIRSTNAME")
     private String firstName;
+    @Column(name = "LASTNAME")
     private String lastName;
+    @Column(name = "BIRTHDAY")
     private Date birthDay;
+    @Column(name = "REGISTRATION_DATE")
     private Date registrationDate;
+    @OneToMany(mappedBy = "user")
     private List<Phone> phones;
+    @OneToMany(mappedBy = "user")
     private List<Authorities> authorities;
 
-    @Column(name = "USERNAME")
+    public User() {
+    }
+
     public String getUsername() {
         return username;
     }
@@ -32,7 +43,16 @@ public class User extends BaseEntity {
         this.username = username;
     }
 
-    @Column(name = "PASSWORD")
+
+    public UserPicture getPicture() {
+        return picture;
+    }
+
+    public void setPicture(UserPicture picture) {
+        this.picture = picture;
+    }
+
+
     public String getPassword() {
         return password;
     }
@@ -41,7 +61,7 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    @Column(name = "ENABLED")
+
     public boolean isEnabled() {
         return enabled;
     }
@@ -50,7 +70,7 @@ public class User extends BaseEntity {
         this.enabled = enabled;
     }
 
-    @Column(name = "EMAIL")
+
     public String getEmail() {
         return email;
     }
@@ -59,7 +79,7 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-    @Column(name = "FIRSTNAME")
+
     public String getFirstName() {
         return firstName;
     }
@@ -68,7 +88,7 @@ public class User extends BaseEntity {
         this.firstName = firstName;
     }
 
-    @Column(name = "LASTNAME")
+
     public String getLastName() {
         return lastName;
     }
@@ -77,7 +97,7 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
-    @Column(name = "BIRTHDAY")
+
     public Date getBirthDay() {
         return birthDay;
     }
@@ -86,7 +106,7 @@ public class User extends BaseEntity {
         this.birthDay = birthDay;
     }
 
-    @Column(name = "REGISTRATIONDATE")
+
     public Date getRegistrationDate() {
         return registrationDate;
     }
@@ -95,7 +115,7 @@ public class User extends BaseEntity {
         this.registrationDate = registrationDate;
     }
 
-    @OneToMany(mappedBy = "Phone")
+
     public List<Phone> getPhones() {
         return phones;
     }
@@ -104,7 +124,7 @@ public class User extends BaseEntity {
         this.phones = phones;
     }
 
-    @OneToMany(mappedBy = "Authorities")
+
     public List<Authorities> getAuthority() {
         return authorities;
     }
