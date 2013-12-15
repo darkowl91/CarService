@@ -10,10 +10,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "BODY_TYPE", schema = "carservice")
 public class BodyType extends BaseEntity {
-    private String typeName;
-    private Car car;
 
     @Column(name = "TYPE_NAME")
+    private String typeName;
+
+    @OneToOne
+    private Car car;
+
     public String getTypeName() {
         return typeName;
     }
@@ -22,7 +25,6 @@ public class BodyType extends BaseEntity {
         this.typeName = typeName;
     }
 
-    @OneToOne
     public Car getCar() {
         return car;
     }

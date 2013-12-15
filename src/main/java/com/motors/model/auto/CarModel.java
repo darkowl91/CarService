@@ -2,15 +2,21 @@ package com.motors.model.auto;
 
 import com.motors.model.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "CAR_MODEL", schema = "carservice")
 public class CarModel extends BaseEntity {
+
+    @ManyToOne
     private CarBrand brand;
+
+    @Column(name = "MODEL_NAME")
     private String modelName;
+
+    @OneToMany(mappedBy = "model")
+    private List<Car> cars;
 
 
     public CarBrand getBrand() {
@@ -21,7 +27,6 @@ public class CarModel extends BaseEntity {
         this.brand = brand;
     }
 
-    @Column(name = "MODEL_NAME")
     public String getModelName() {
         return modelName;
     }

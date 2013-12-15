@@ -4,18 +4,26 @@ import com.motors.model.BaseEntity;
 import com.motors.model.account.User;
 import com.motors.model.auto.Car;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
 @Table(name = "ADVERTISMENT", schema = "carservice")
 public class Advt extends BaseEntity {
+
+    @ManyToOne
     private User user;
+
+    @OneToOne
     private Car car;
+
+    @Column(name = "NOTE")
     private String note;
+
+    @Column(name = "VERIFIED")
     private boolean verified;
+
+    @Column(name = "DATE")
     private Date date;
 
     public User getUser() {
@@ -34,7 +42,6 @@ public class Advt extends BaseEntity {
         this.car = car;
     }
 
-    @Column(name = "NOTE")
     public String getNote() {
         return note;
     }
@@ -43,7 +50,6 @@ public class Advt extends BaseEntity {
         this.note = note;
     }
 
-    @Column(name = "VERIFIED")
     public boolean isVerified() {
         return verified;
     }
@@ -52,7 +58,6 @@ public class Advt extends BaseEntity {
         this.verified = verified;
     }
 
-    @Column(name = "DATE")
     public Date getDate() {
         return date;
     }

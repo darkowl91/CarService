@@ -10,12 +10,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PHONE", schema = "carservice")
 public class Phone extends BaseEntity {
+
     @Column(name = "OPERATOR")
     private String operator;
+
     @Column(name = "PHONE_VALUE")
     private String phoneValue;
+
     @Column(name = "PHONE_TYPE")
     private String type;
+
     @ManyToOne
     private User user;
 

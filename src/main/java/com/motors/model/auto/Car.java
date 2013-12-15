@@ -10,14 +10,26 @@ import java.util.List;
 @Entity
 @Table(name = "CAR", schema = "carservice")
 public class Car extends BaseEntity {
-    private Date produceYear;
-    private BigDecimal price;
-    private CarModel model;
-    private BodyType body;
-    private Transmission transmission;
-    private List<CarPicture> pictures;
 
     @Column(name = "PRODUCE_YEAR")
+    private Date produceYear;
+
+    @Column(name = "PRICE")
+    private BigDecimal price;
+
+    @ManyToOne
+    private CarModel model;
+
+
+    @OneToOne
+    private BodyType body;
+
+    @Column(name = "TRANSMISSION")
+    private Transmission transmission;
+
+    @OneToMany(mappedBy = "car")
+    private List<CarPicture> pictures;
+
     public Date getProduceYear() {
         return produceYear;
     }
@@ -26,7 +38,6 @@ public class Car extends BaseEntity {
         this.produceYear = pauseYear;
     }
 
-    @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
@@ -35,7 +46,6 @@ public class Car extends BaseEntity {
         this.price = price;
     }
 
-    @ManyToOne
     public CarModel getModel() {
         return model;
     }
@@ -44,7 +54,6 @@ public class Car extends BaseEntity {
         this.model = model;
     }
 
-    @OneToOne
     public BodyType getBody() {
         return body;
     }
@@ -53,7 +62,6 @@ public class Car extends BaseEntity {
         this.body = body;
     }
 
-    @Column(name = "TRANSMISSION")
     public Transmission getTransmission() {
         return transmission;
     }
@@ -62,7 +70,6 @@ public class Car extends BaseEntity {
         this.transmission = transmission;
     }
 
-    @OneToMany
     public List<CarPicture> getPictures() {
         return pictures;
     }

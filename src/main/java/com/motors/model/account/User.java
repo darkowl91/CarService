@@ -1,6 +1,7 @@
 package com.motors.model.account;
 
 import com.motors.model.BaseEntity;
+import com.motors.model.advertisement.Advt;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -9,28 +10,42 @@ import java.util.List;
 @Entity
 @Table(name = "USER", schema = "carservice")
 public class User extends BaseEntity {
+
     @Column(name = "USERNAME")
     private String username;
+
     @OneToOne
     private UserPicture picture;
+
     @Column(name = "PASSWORD")
     private String password;
+
     @Column(name = "ENABLED")
     private boolean enabled;
+
     @Column(name = "EMAIL")
     private String email;
+
     @Column(name = "FIRSTNAME")
     private String firstName;
+
     @Column(name = "LASTNAME")
     private String lastName;
+
     @Column(name = "BIRTHDAY")
     private Date birthDay;
+
     @Column(name = "REGISTRATION_DATE")
     private Date registrationDate;
+
     @OneToMany(mappedBy = "user")
     private List<Phone> phones;
+
     @OneToMany(mappedBy = "user")
     private List<Authorities> authorities;
+
+    @OneToMany(mappedBy = "user")
+    private List<Advt> advts;
 
     public User() {
     }
@@ -43,7 +58,6 @@ public class User extends BaseEntity {
         this.username = username;
     }
 
-
     public UserPicture getPicture() {
         return picture;
     }
@@ -51,7 +65,6 @@ public class User extends BaseEntity {
     public void setPicture(UserPicture picture) {
         this.picture = picture;
     }
-
 
     public String getPassword() {
         return password;
@@ -61,7 +74,6 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-
     public boolean isEnabled() {
         return enabled;
     }
@@ -69,7 +81,6 @@ public class User extends BaseEntity {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-
 
     public String getEmail() {
         return email;
@@ -79,7 +90,6 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -87,7 +97,6 @@ public class User extends BaseEntity {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
 
     public String getLastName() {
         return lastName;
@@ -97,7 +106,6 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
-
     public Date getBirthDay() {
         return birthDay;
     }
@@ -105,7 +113,6 @@ public class User extends BaseEntity {
     public void setBirthDay(Date birthDay) {
         this.birthDay = birthDay;
     }
-
 
     public Date getRegistrationDate() {
         return registrationDate;
@@ -115,7 +122,6 @@ public class User extends BaseEntity {
         this.registrationDate = registrationDate;
     }
 
-
     public List<Phone> getPhones() {
         return phones;
     }
@@ -124,12 +130,19 @@ public class User extends BaseEntity {
         this.phones = phones;
     }
 
-
     public List<Authorities> getAuthority() {
         return authorities;
     }
 
     public void setAuthority(List<Authorities> authority) {
         this.authorities = authority;
+    }
+
+    public List<Advt> getAdvts() {
+        return advts;
+    }
+
+    public void setAdvts(List<Advt> advts) {
+        this.advts = advts;
     }
 }

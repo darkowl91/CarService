@@ -10,8 +10,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "USER_PICTURE", schema = "carservice")
 public class UserPicture extends BaseEntity {
+
     @Column(name = "PICTURE_NAME")
     private String pictureName;
+
     @ManyToOne
     private User user;
 

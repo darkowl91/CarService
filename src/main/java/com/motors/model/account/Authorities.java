@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "AUTHORITIES", schema = "carservice")
 public class Authorities extends BaseEntity {
+
     @Column(name = "AUTHORITY")
     private String authority;
 

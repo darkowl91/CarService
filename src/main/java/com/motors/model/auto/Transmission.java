@@ -1,6 +1,7 @@
 package com.motors.model.auto;
 
 public enum Transmission {
+
     AUTO("Автомат"),
     MANUAL("Механическая"),
     COMBINED("Комбинированная");
@@ -14,6 +15,5 @@ public enum Transmission {
     public String getValue() {
         return value;
     }
-
 
 }

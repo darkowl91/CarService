@@ -9,11 +9,11 @@
         <mapping class="com.motors.model.account.Authorities"/>
         <mapping class="com.motors.model.account.Phone"/>
         <mapping class="com.motors.model.account.UserPicture"/>
-        <!--<mapping class="com.motors.model.auto.Car"/>-->
-        <!--<mapping class="com.motors.model.auto.CarBrand"/>-->
-        <!--<mapping class="com.motors.model.auto.CarPicture"/>-->
-        <!--<mapping class="com.motors.model.auto.CarModel"/>-->
-        <!--<mapping class="com.motors.model.auto.BodyType"/>-->
-        <!--<mapping class="com.motors.model.advertisement.Advt"/>-->
+        <mapping class="com.motors.model.auto.Car"/>
+        <mapping class="com.motors.model.auto.CarBrand"/>
+        <mapping class="com.motors.model.auto.CarPicture"/>
+        <mapping class="com.motors.model.auto.CarModel"/>
+        <mapping class="com.motors.model.auto.BodyType"/>
+        <mapping class="com.motors.model.advertisement.Advt"/>
     </session-factory>
 </hibernate-configuration>
