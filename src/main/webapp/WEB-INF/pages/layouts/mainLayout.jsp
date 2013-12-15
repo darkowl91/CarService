@@ -6,14 +6,30 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
     <tiles:insertAttribute name="css_resources"/>
+
+    <title></title>
 
 </head>
 <body>
 <tiles:insertAttribute name="header"/>
+<div id="page-wrapper">
+    <tiles:insertAttribute name="breadcrumb"/>
+    <div class="clearfix">
 
+        <div class="col-md-3 column">
+        </div>
 
+        <div class="col-md-6 column">
+            <tiles:insertAttribute name="advert"/>
+            <tiles:insertAttribute name="navLeft"/>
+        </div>
+
+        <div class="col-md-3 column">
+        </div>
+    </div>
+</div>
+<tiles:insertAttribute name="footer"/>
 <tiles:insertAttribute name="js_resources"/>
 </body>
 </html>

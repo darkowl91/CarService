@@ -5,13 +5,15 @@
 
 <tiles-definitions>
     <definition name="mainLayout" template="/WEB-INF/pages/layouts/mainLayout.jsp">
-        <put-attribute name="header" value="/WEB-INF/pages/tiles/header.jsp"/>
-        <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp"/>
         <put-attribute name="css_resources" value="/WEB-INF/pages/tiles/css.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/header.jsp"/>
+        <put-attribute name="breadcrumb" value="/WEB-INF/pages/tiles/breadcrumb.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp"/>
         <put-attribute name="js_resources" value="/WEB-INF/pages/tiles/js.jsp"/>
-        <put-attribute name="title" expression="Car Service"/>
     </definition>
 
     <definition name="start" extends="mainLayout">
+        <put-attribute name="advert" value="/WEB-INF/pages/tiles/advert.jsp"/>
+        <put-attribute name="navLeft" value="/WEB-INF/pages/tiles/navigationLeft.jsp"/>
     </definition>
 </tiles-definitions>
