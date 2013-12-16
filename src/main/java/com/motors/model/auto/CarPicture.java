@@ -14,6 +14,9 @@ public class CarPicture extends BaseEntity {
     @Column(name = "PICTURE_NAME")
     private String pictureName;
 
+    @Column(name = "IMAGE", columnDefinition = "mediumblob")
+    private byte[] image;
+
     @ManyToOne
     private Car car;
 
@@ -31,5 +34,13 @@ public class CarPicture extends BaseEntity {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

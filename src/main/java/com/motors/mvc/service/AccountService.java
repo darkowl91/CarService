@@ -17,6 +17,7 @@ public class AccountService implements IAccountService {
 
     BaseEntityDao<User> userDao;
     IEntityDao<Phone> phoneDao;
+
     IEntityDao<UserPicture> userPictureDao;
     IEntityDao<Authorities> userAuthoritiesDao;
 

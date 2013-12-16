@@ -20,7 +20,6 @@ public class Car extends BaseEntity {
     @ManyToOne
     private CarModel model;
 
-
     @OneToOne
     private BodyType body;
 

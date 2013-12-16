@@ -14,6 +14,9 @@ public class UserPicture extends BaseEntity {
     @Column(name = "PICTURE_NAME")
     private String pictureName;
 
+    @Column(name = "IMAGE", columnDefinition = "mediumblob")
+    private byte[] image;
+
     @ManyToOne
     private User user;
 
@@ -28,12 +31,19 @@ public class UserPicture extends BaseEntity {
         this.pictureName = pictureName;
     }
 
-
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }
