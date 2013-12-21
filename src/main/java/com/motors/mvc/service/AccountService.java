@@ -30,7 +30,7 @@ public class AccountService implements IAccountService {
     @Override
     public User getLoginPerson(String login) {
         User person = null;
-        return userDao.getById(1L);
+        return person;
 
     }
 

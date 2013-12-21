@@ -1,0 +1,10 @@
+INSERT INTO user
+(ID, BIRTHDAY, EMAIL, ENABLED, FIRSTNAME, LASTNAME, PASSWORD, REGISTRATION_DATE, USERNAME)
+VALUES
+(1,'1991-01-22', 'darkowl91@gmail.com', 1, 'Nickolay', 'Petrash', '123', '2013-12-22', 'Owl');
+
+
+INSERT INTO authorities
+(ID, AUTHORITY, user_ID)
+values
+ (1,'ROLE_USER',1)
