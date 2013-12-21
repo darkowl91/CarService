@@ -2,9 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <c:forEach var="i" begin="1" end="100">
-    <div class="panel panel-primary">
+    <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Panel primary</h3>
+            <h3 class="panel-title"><i class="fa fa-dollar "></i> Panel primary</h3>
         </div>
         <div class="panel-body">
             <div class="media">

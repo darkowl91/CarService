@@ -23,16 +23,17 @@
     <div class="clearfix">
 
         <div class="col-md-3 column">
+            <tiles:insertAttribute name="navRight"/>
         </div>
 
         <div class="col-md-6 column">
             <tiles:insertAttribute name="advert"/>
-
         </div>
 
         <div class="col-md-3 column">
             <tiles:insertAttribute name="navLeft"/>
         </div>
+
     </div>
 </div>
 <tiles:insertAttribute name="footer"/>
