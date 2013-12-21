@@ -4,7 +4,7 @@
 <div class="navbar-inverse navbar-fixed-bottom">
     <div class="navbar-inner">
         <div class="container">
-            <p class="muted credit"><a href="#"><spring:message code="footer.content"/></a></p>
+            <p class="muted credit"><a href="#"><spring:message code="footer.label.compName"/></a></p>
         </div>
     </div>
 </div>

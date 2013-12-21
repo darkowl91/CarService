@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="62959365">
-    <data-source source="LOCAL" name="CarServiseDataSource" product="MySQL" version="5.5.20" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.6 ( Revision: ${svn.Revision} )" uuid="1d0f694c-a1b5-4955-9aac-7d717f174cdc">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
+  <component name="DataSourceManagerImpl" format="xml" hash="958899263">
+    <data-source source="LOCAL" name="CarServiseDataSource" uuid="1d0f694c-a1b5-4955-9aac-7d717f174cdc">
+      <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/CarService</jdbc-url>

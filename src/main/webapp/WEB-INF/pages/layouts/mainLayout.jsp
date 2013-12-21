@@ -8,11 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <tiles:insertAttribute name="css_resources"/>
 
-    <title></title>
+    <title><tiles:insertAttribute name="title"/></title>
 
 </head>
 <body>
 <tiles:insertAttribute name="header"/>
+
+<%--MODAL --%>
+<tiles:insertAttribute name="header_login_modal"/>
+<%--MODAL END--%>
+
 <div id="page-wrapper">
     <tiles:insertAttribute name="breadcrumb"/>
     <div class="clearfix">
