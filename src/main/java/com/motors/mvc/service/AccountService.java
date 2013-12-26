@@ -2,24 +2,18 @@ package com.motors.mvc.service;
 
 
 import com.motors.dao.BaseEntityDao;
-import com.motors.dao.IEntityDao;
-import com.motors.model.account.Authorities;
-import com.motors.model.account.Phone;
 import com.motors.model.account.User;
-import com.motors.model.account.UserPicture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service("IAccountService")
 @Transactional
 public class AccountService implements IAccountService {
 
     BaseEntityDao<User> userDao;
-    IEntityDao<Phone> phoneDao;
-
-    IEntityDao<UserPicture> userPictureDao;
-    IEntityDao<Authorities> userAuthoritiesDao;
 
     @Autowired
     public void setUserDao(BaseEntityDao<User> userBaseEntityDao) {
@@ -29,9 +23,10 @@ public class AccountService implements IAccountService {
 
     @Override
     public User getLoginPerson(String login) {
-        User person = null;
-        return person;
-
+       // Map<String, Object> parameters = new HashMap<String, Object>();
+       // parameters.put("login", login);
+        List<User> users = userDao.getByNamedQuery("FROM User WHERE username=:login", login);
+        return users.get(0);
     }
 
 }
