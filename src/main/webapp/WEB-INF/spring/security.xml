@@ -12,11 +12,14 @@ http://www.springframework.org/schema/security/spring-security-3.0.xsd">
         <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>-->
         <form-login login-page="/" default-target-url="/logIn"
                     authentication-failure-url="/?error=true"/>
-        <logout logout-url="/logout" logout-success-url="/"/>
+        <logout logout-success-url="/logOut"/>
 
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
         <remember-me/>
     </http>
+
+    <!--Spring security tags-->
+    <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
 
     <authentication-manager>
         <authentication-provider>

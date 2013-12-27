@@ -18,5 +18,11 @@ public class AccountController extends BaseController {
         return "start";
     }
 
-
+    @RequestMapping(value = "/logOut")
+    public String logOut(HttpSession session) {
+        if (session != null) {
+            session.invalidate();
+        }
+        return "start";
+    }
 }
