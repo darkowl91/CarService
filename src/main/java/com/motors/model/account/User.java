@@ -14,7 +14,7 @@ public class User extends BaseEntity {
     @Column(name = "USERNAME")
     private String username;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private UserPicture picture;
 
     @Column(name = "PASSWORD")
@@ -42,7 +42,7 @@ public class User extends BaseEntity {
     private List<Phone> phones;
 
     @OneToMany(mappedBy = "user")
-    private List<Authorities> authorities;
+    private List<Authority> authorities;
 
     @OneToMany(mappedBy = "user")
     private List<Advt> advts;
@@ -130,11 +130,11 @@ public class User extends BaseEntity {
         this.phones = phones;
     }
 
-    public List<Authorities> getAuthority() {
+    public List<Authority> getAuthority() {
         return authorities;
     }
 
-    public void setAuthority(List<Authorities> authority) {
+    public void setAuthority(List<Authority> authority) {
         this.authorities = authority;
     }
 

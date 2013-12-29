@@ -4,7 +4,7 @@
     <session-factory>
         <mapping class="com.motors.model.BaseEntity"/>
         <mapping class="com.motors.model.account.User"/>
-        <mapping class="com.motors.model.account.Authorities"/>
+        <mapping class="com.motors.model.account.Authority"/>
         <mapping class="com.motors.model.account.Phone"/>
         <mapping class="com.motors.model.account.UserPicture"/>
         <mapping class="com.motors.model.auto.Car"/>

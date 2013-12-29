@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <div class="row clearfix">
@@ -9,36 +10,41 @@
         <div class="panel-body">
 
             <div class="col-md-6 column">
-                <form name="registration-form" method="post" action="register">
+                <form name="registration-form" method="post" enctype="multipart/form-data" action="<c:url value="/register"/>">
                     <div class="field-box">
                         <label>Name:</label>
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" name="name">
                     </div>
 
                     <div class="field-box">
                         <label>Surname:</label>
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" name="surname">
                     </div>
 
                     <div class="field-box">
                         <label>Email:</label>
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" name="email">
                     </div>
 
                     <div class="field-box">
                         <label>Password:</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" name="password1">
 
                     </div>
 
                     <div class="field-box">
                         <label>Password confirm:</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" name="password2">
+                    </div>
+
+                    <div class="field-box">
+                        <label>Username:</label>
+                        <input class="form-control" type="text" name="username">
                     </div>
 
                     <div class="field-box">
                         <label>Photo:</label>
-                        <input type="file" class="btn btn-link">
+                        <input type="file" class="btn btn-link" name="photo">
                     </div>
 
                     <br/>

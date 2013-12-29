@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "AUTHORITIES", schema = "carservice")
-public class Authorities extends BaseEntity {
+public class Authority extends BaseEntity {
 
     @Column(name = "AUTHORITY")
     private String authority;
@@ -17,7 +17,7 @@ public class Authorities extends BaseEntity {
     @ManyToOne
     private User user;
 
-    public Authorities() {
+    public Authority() {
     }
 
     public String getAuthority() {

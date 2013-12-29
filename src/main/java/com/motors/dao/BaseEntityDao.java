@@ -22,7 +22,7 @@ public abstract class BaseEntityDao<T extends BaseEntity> implements IEntityDao<
 
     @Override
     public List<T> getAll() {
-        return getCurrentSession().createQuery("from" + clazz.getName()).list();
+        return getCurrentSession().createQuery("From" + clazz.getName()).list();
     }
 
     @Override

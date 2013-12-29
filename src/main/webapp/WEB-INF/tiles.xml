@@ -15,7 +15,7 @@
     </definition>
 
     <definition name="start" extends="mainLayout">
-        <put-attribute name="advert" value="/WEB-INF/pages/tiles/advert.jsp"/>
+        <put-attribute name="advert" value="/WEB-INF/pages/tiles/registrationForm.jsp"/>
         <put-attribute name="navRight" value="/WEB-INF/pages/tiles/searchForm.jsp"/>
         <put-attribute name="navLeft" value="/WEB-INF/pages/tiles/navigationLeft.jsp"/>
     </definition>
