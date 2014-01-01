@@ -10,6 +10,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "AUTHORITIES", schema = "carservice")
 public class Authority extends BaseEntity {
+    public static final String ROLE_USER = "ROLE_USER";
+    public static final String ROLE_ADMIN = "ROLE_ADMIN";
+    public static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
 
     @Column(name = "AUTHORITY")
     private String authority;
@@ -18,6 +21,11 @@ public class Authority extends BaseEntity {
     private User user;
 
     public Authority() {
+        authority = ROLE_ANONYMOUS;
+    }
+
+    public Authority(String authority) {
+        this.authority = authority;
     }
 
     public String getAuthority() {

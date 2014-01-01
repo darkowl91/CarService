@@ -1,8 +1,12 @@
 package com.motors.mvc.controller;
 
+import com.motors.model.account.Authority;
+import com.motors.model.account.Phone;
 import com.motors.model.account.User;
+import com.motors.programm.nav.BreadCrumbs;
 import com.motors.programm.util.DateUtil;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.Principal;
+import java.sql.Date;
 
 @Controller
 public class AccountController extends BaseController {
@@ -20,7 +25,8 @@ public class AccountController extends BaseController {
     public String logIn(HttpSession session, Principal principal) {
         User user = accountService.getLoginPerson(principal.getName());
         session.setAttribute("user", user);
-        return "start";
+        //TODO: need to return to last page
+        return "redirect:/carService/adverts";
     }
 
     @RequestMapping(value = "/logOut")
@@ -28,7 +34,34 @@ public class AccountController extends BaseController {
         if (session != null) {
             session.invalidate();
         }
-        return "start";
+        //TODO: need to return to last page
+        return "redirect:/carService/adverts";
+    }
+
+    @RequestMapping(value = "/carService/register")
+    public String register(ModelMap modelMap) {
+        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("register", "/carService/register", "carService.registration"));
+
+        return "carService.registration";
+    }
+
+    @RequestMapping(value = "/carService/profileSettings")
+    public String settings(ModelMap modelMap) {
+        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("settings", "/carService/profileSettings", "carService.profileSettings"));
+        return "carService.profileSettings";
+    }
+
+    @RequestMapping(value = "/editProfile", method = RequestMethod.POST)
+    public String editProfileSettings(HttpSession session,
+                                      @RequestParam(value = "birthday") Date birthday,
+                                      @RequestParam(value = "operator") String operator,
+                                      @RequestParam(value = "number") String number,
+                                      @RequestParam(value = "type") String type) {
+        User user = (User) session.getAttribute("user");
+        user.setBirthDay(birthday);
+        user.getPhones().add(new Phone(operator, number, type));
+        accountService.saveUser(user);
+        return "carService.profileSettings";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -39,7 +72,7 @@ public class AccountController extends BaseController {
                                      @RequestParam(value = "password2") String password2,
                                      @RequestParam(value = "username") String username,
                                      @RequestParam(value = "photo") MultipartFile photo) {
-        User userInstance = accountService.getNewUserInstance();
+        User userInstance = accountService.getNewUserInstance(Authority.ROLE_USER);
         userInstance.setFirstName(name);
         userInstance.setLastName(surname);
         userInstance.setEmail(email);
@@ -52,11 +85,11 @@ public class AccountController extends BaseController {
             userInstance.getPicture().setImage(photo.getBytes());
             userInstance.getPicture().setPictureName(photo.getName());
         } catch (IOException e) {
-            LOGG.error("Upload user photo", e);
+            LOG.error("Upload user photo", e);
         }
         userInstance.setRegistrationDate(DateUtil.getDateNow());
         accountService.saveUser(userInstance);
 
-        return "start";
+        return "carService.registration";
     }
 }

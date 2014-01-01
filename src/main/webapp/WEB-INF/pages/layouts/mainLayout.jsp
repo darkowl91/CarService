@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <tiles:insertAttribute name="css_resources"/>
+    <tiles:insertAttribute name="js_resources"/>
 
     <title><tiles:insertAttribute name="title"/></title>
 
@@ -23,20 +24,19 @@
     <div class="clearfix">
 
         <div class="col-md-3 column">
-            <tiles:insertAttribute name="navRight"/>
+            <tiles:insertAttribute name="navLeft"/>
         </div>
 
         <div class="col-md-6 column">
-            <tiles:insertAttribute name="advert"/>
+            <tiles:insertAttribute name="content"/>
         </div>
 
         <div class="col-md-3 column">
-            <tiles:insertAttribute name="navLeft"/>
+            <tiles:insertAttribute name="navRight"/>
         </div>
 
     </div>
 </div>
 <tiles:insertAttribute name="footer"/>
-<tiles:insertAttribute name="js_resources"/>
 </body>
 </html>

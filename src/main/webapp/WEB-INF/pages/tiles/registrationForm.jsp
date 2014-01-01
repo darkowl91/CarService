@@ -1,5 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="row clearfix">
 
@@ -10,36 +11,36 @@
         <div class="panel-body">
 
             <div class="col-md-6 column">
-                <form name="registration-form" method="post" enctype="multipart/form-data" action="<c:url value="/register"/>">
+                <form name="registration-form" method="post" enctype="multipart/form-data"
+                      action="<c:url value="/register"/>">
                     <div class="field-box">
                         <label>Name:</label>
-                        <input class="form-control" type="text" name="name">
+                        <input class="form-control" type="text" name="name" required="">
                     </div>
 
                     <div class="field-box">
                         <label>Surname:</label>
-                        <input class="form-control" type="text" name="surname">
+                        <input class="form-control" type="text" name="surname" required="">
                     </div>
 
                     <div class="field-box">
                         <label>Email:</label>
-                        <input class="form-control" type="text" name="email">
+                        <input class="form-control" id="email" type="email" name="email" required="">
                     </div>
 
                     <div class="field-box">
                         <label>Password:</label>
-                        <input type="password" class="form-control" name="password1">
-
+                        <input type="password" class="form-control" name="password1" required="">
                     </div>
 
                     <div class="field-box">
                         <label>Password confirm:</label>
-                        <input type="password" class="form-control" name="password2">
+                        <input type="password" class="form-control" name="password2" required="">
                     </div>
 
                     <div class="field-box">
                         <label>Username:</label>
-                        <input class="form-control" type="text" name="username">
+                        <input class="form-control" type="text" name="username" required="">
                     </div>
 
                     <div class="field-box">

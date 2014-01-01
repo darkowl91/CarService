@@ -41,7 +41,7 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private List<Phone> phones;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Authority> authorities;
 
     @OneToMany(mappedBy = "user")
