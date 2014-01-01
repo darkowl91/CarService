@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.Principal;
-import java.sql.Date;
+import java.util.Locale;
 
 @Controller
 public class AccountController extends BaseController {
@@ -53,15 +53,15 @@ public class AccountController extends BaseController {
 
     @RequestMapping(value = "/editProfile", method = RequestMethod.POST)
     public String editProfileSettings(HttpSession session,
-                                      @RequestParam(value = "birthday") Date birthday,
+                                      @RequestParam(value = "birthday") String birthday,
                                       @RequestParam(value = "operator") String operator,
                                       @RequestParam(value = "number") String number,
                                       @RequestParam(value = "type") String type) {
         User user = (User) session.getAttribute("user");
-        user.setBirthDay(birthday);
+        user.setBirthDay(DateUtil.getSqlDateByStrValue(birthday, DateUtil.PATTERN_YYYY_MM_DD, Locale.getDefault()));
         user.getPhones().add(new Phone(operator, number, type));
         accountService.saveUser(user);
-        return "carService.profileSettings";
+        return "redirect: /carService/profileSettings";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -90,6 +90,6 @@ public class AccountController extends BaseController {
         userInstance.setRegistrationDate(DateUtil.getDateNow());
         accountService.saveUser(userInstance);
 
-        return "carService.registration";
+        return "redirect:/carService/register";
     }
 }

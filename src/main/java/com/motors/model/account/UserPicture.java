@@ -1,11 +1,12 @@
 package com.motors.model.account;
 
 import com.motors.model.BaseEntity;
+import com.motors.programm.util.ImageUtil;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "USER_PICTURE", schema = "carservice")
@@ -17,8 +18,8 @@ public class UserPicture extends BaseEntity {
     @Column(name = "IMAGE", columnDefinition = "mediumblob")
     private byte[] image;
 
-    @ManyToOne
-    private User user;
+    @Transient
+    private String imageAsString;
 
     public UserPicture() {
     }
@@ -31,19 +32,15 @@ public class UserPicture extends BaseEntity {
         this.pictureName = pictureName;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public byte[] getImage() {
         return image;
     }
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public String getImageAsString() {
+        return ImageUtil.getInstance().getEncoded(image, "");
     }
 }
