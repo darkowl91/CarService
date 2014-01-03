@@ -24,8 +24,9 @@ public class Authority extends BaseEntity {
         authority = ROLE_ANONYMOUS;
     }
 
-    public Authority(String authority) {
+    public Authority(String authority, User user) {
         this.authority = authority;
+        this.user = user;
     }
 
     public String getAuthority() {

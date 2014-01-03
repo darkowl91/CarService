@@ -47,7 +47,7 @@ public class AccountController extends BaseController {
 
     @RequestMapping(value = "/carService/profileSettings")
     public String settings(ModelMap modelMap) {
-        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("settings", "/carService/profileSettings", "carService.profileSettings"));
+        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("profileSettings", "/carService/profileSettings", "carService.profileSettings"));
         return "carService.profileSettings";
     }
 
@@ -58,6 +58,7 @@ public class AccountController extends BaseController {
                                       @RequestParam(value = "number") String number,
                                       @RequestParam(value = "type") String type) {
         User user = (User) session.getAttribute("user");
+        //TODO: fix date format
         user.setBirthDay(DateUtil.getSqlDateByStrValue(birthday, DateUtil.PATTERN_YYYY_MM_DD, Locale.getDefault()));
         user.getPhones().add(new Phone(operator, number, type));
         accountService.saveUser(user);
