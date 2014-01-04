@@ -18,7 +18,6 @@
 
     <definition name="carService.adverts" extends="mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/advert.jsp"/>
-        <!--<put-attribute name="navRight" value="/WEB-INF/pages/tiles/navigationRight.jsp"/>-->
     </definition>
 
     <definition name="carService.news" extends="mainLayout">
@@ -27,24 +26,20 @@
     </definition>
 
     <definition name="carService.sale" extends="mainLayout">
-        <put-attribute name="content" value=""/>
-        <!--<put-attribute name="navRight" value="/WEB-INF/pages/tiles/navigationRight.jsp"/>-->
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/AdvertFirstForm.jsp"/>
     </definition>
 
     <definition name="carService.searchAdvert" extends="mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/advert.jsp"/>
         <put-attribute name="navLeft" value="/WEB-INF/pages/tiles/searchForm.jsp"/>
-        <!--<put-attribute name="navRight" value="/WEB-INF/pages/tiles/navigationRight.jsp"/>-->
     </definition>
 
     <definition name="carService.registration" extends="mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/registrationForm.jsp"/>
-        <!--<put-attribute name="navRight" value="/WEB-INF/pages/tiles/navigationRight.jsp"/>-->
     </definition>
 
     <definition name="carService.profileSettings" extends="mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/settingsForm.jsp"/>
-        <!--<put-attribute name="navRight" value="/WEB-INF/pages/tiles/navigationRight.jsp"/>-->
     </definition>
 
 </tiles-definitions>

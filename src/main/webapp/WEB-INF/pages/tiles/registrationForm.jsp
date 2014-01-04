@@ -59,7 +59,15 @@
             <div class="col-md-6 column">
                 <br/>
                 <a href="#" class="pull-left ">
-                    <img src="http://lorempixel.com/128/128/" class="media-object" alt=''/></a>
+                    <c:if test="${not empty user.picture.imageAsString}">
+                    <img width="150px" height="150px" src="data:image/jpeg;base64,${user.picture.imageAsString}"
+                         class="media-object" alt=''/></a>
+                </c:if>
+
+                <c:if test="${empty user.picture.imageAsString}">
+                    <img width="150px" height="150px" src="<c:url value="/resources/design/img/no_user1.png"/>"
+                         class="media-object" alt=''/></a>
+                </c:if>
             </div>
 
         </div>

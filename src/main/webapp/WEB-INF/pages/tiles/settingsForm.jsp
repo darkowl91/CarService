@@ -36,24 +36,22 @@
 
         <form class="form-horizontal" role="form" method="post" action="<c:url value="/editProfile"/>">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Birthday:</label>
+                <label class="col-sm-2 control-label">Birthday: ${user.birthDay}</label>
 
                 <div class="col-sm-10">
-                    <input class="form-control small" type="date" name="birthday"
-                           value="${user.birthDay}"
-                           required="">
+                    <input class="form-control small" type="date" name="birthday" value="${user.birthDay}">
                 </div>
             </div>
 
             <label class="control-label">Phone: (+375) Belarus </label>
             <table class="table">
-                <c:forEach var="i" begin="1" end="3">
+                <c:forEach var="i" begin="0" end="2">
                     <tr>
                         <td>
                             <label class="control-label">Operator:</label>
                         </td>
                         <td>
-                            <select class="form-control" name="operator_${i}" id="operator" required="">
+                            <select class="form-control" name="operator_${i}" id="operator">
                                 <option></option>
                                 <option value="(017)">Белтелеком</option>
                                 <option value="(29)">Velcome</option>
@@ -65,13 +63,13 @@
                             <label class="control-label">Number:</label>
                         </td>
                         <td>
-                            <input class="form-control" type="tel" name="number_${i}" required="">
+                            <input class="form-control" type="tel" name="number_${i}">
                         </td>
                         <td>
                             <label class="control-label">Type:</label>
                         </td>
                         <td>
-                            <select class="form-control" name="type_${i}" required="">
+                            <select class="form-control" name="type_${i}">
                                 <option></option>
                                 <option value="home">Домашний</option>
                                 <option value="work">Рабочий</option>

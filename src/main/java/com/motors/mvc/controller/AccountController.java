@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.Principal;
-import java.util.Locale;
 
 @Controller
 public class AccountController extends BaseController {
@@ -40,28 +40,32 @@ public class AccountController extends BaseController {
 
     @RequestMapping(value = "/carService/register")
     public String register(ModelMap modelMap) {
-        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("register", "/carService/register", "carService.registration"));
+        modelMap.put(BreadCrumbs.BEAN_NAME,
+                new BreadCrumbs("register", "/carService/register", "carService.registration"));
 
         return "carService.registration";
     }
 
     @RequestMapping(value = "/carService/profileSettings")
     public String settings(ModelMap modelMap) {
-        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("profileSettings", "/carService/profileSettings", "carService.profileSettings"));
+        modelMap.put(BreadCrumbs.BEAN_NAME,
+                new BreadCrumbs("profileSettings", "/carService/profileSettings", "carService.profileSettings"));
         return "carService.profileSettings";
     }
 
     @RequestMapping(value = "/editProfile", method = RequestMethod.POST)
-    public String editProfileSettings(HttpSession session,
-                                      @RequestParam(value = "birthday") String birthday,
-                                      @RequestParam(value = "operator") String operator,
-                                      @RequestParam(value = "number") String number,
-                                      @RequestParam(value = "type") String type) {
+    public String editProfileSettings(HttpSession session, HttpServletRequest request,
+                                      @RequestParam(value = "birthday") String birthday) {
         User user = (User) session.getAttribute("user");
-        //TODO: fix date format
-        user.setBirthDay(DateUtil.getSqlDateByStrValue(birthday, DateUtil.PATTERN_YYYY_MM_DD, Locale.getDefault()));
-        user.getPhones().add(new Phone(operator, number, type));
+        for (int i = 0; i < 2; i++) {
+            String operator = request.getParameter("operator_" + i);
+            String number = request.getParameter("number_" + i);
+            String type = request.getParameter("type_" + i);
+            user.getPhones().add(new Phone(operator, number, type));
+        }
+        user.setBirthDay(DateUtil.getSqlDateByStrValue(birthday));
         accountService.saveUser(user);
+
         return "redirect: /carService/profileSettings";
     }
 
