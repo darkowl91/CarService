@@ -15,7 +15,7 @@
                         Car brand:
                     </td>
                     <td>
-                        <select name="brand" class="form-control">
+                        <select id="brand" name="brand" class="form-control" onchange="doAjax();">
                             <option></option>
                             <c:forEach var="carBrand" items="${brands}">
                                 <option>${carBrand.brandName}</option>
@@ -23,13 +23,29 @@
                         </select>
                     </td>
                 </tr>
+                <script>
+                    function doAjax() {
+                        var text = $("#brand").find("option:selected").text();
+                        $.ajax({
+                            type : 'POST',
+                            url: "/carService/sale/ajax?brand='" + text + "'",
+                            contentType : 'application/json; charset=utf-8',
+                            success: function (response) {
+                                alert(response);
+                            },
+                            error: function (e) {
+                                alert('Error: ' + e);
+                            }
+                        });
+                    }
+                </script>
 
                 <tr>
                     <td>
                         Car model:
                     </td>
                     <td>
-                        <select name="model" class="form-control">
+                        <select id="model" name="model" class="form-control">
                             <option></option>
                             <c:forEach var="carModel" items="${models}">
                                 <option>${carModel.modelName}</option>
@@ -37,6 +53,7 @@
                         </select>
                     </td>
                 </tr>
+
 
                 <tr>
                     <td>
@@ -77,3 +94,4 @@
         </form>
     </div>
 </div>
+

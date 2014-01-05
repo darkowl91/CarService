@@ -3,10 +3,7 @@ package com.motors.mvc.service;
 import com.motors.dao.BaseEntityDao;
 import com.motors.model.account.User;
 import com.motors.model.advertisement.Advt;
-import com.motors.model.auto.BodyType;
-import com.motors.model.auto.Car;
-import com.motors.model.auto.CarBrand;
-import com.motors.model.auto.Transmission;
+import com.motors.model.auto.*;
 import com.motors.programm.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,11 +21,13 @@ public class AdvertService implements IAdvertService {
     BaseEntityDao<Advt> advtDao;
     BaseEntityDao<CarBrand> carBrandDao;
     BaseEntityDao<BodyType> bodyTypeDao;
+    BaseEntityDao<CarModel> carModelDao;
 
 
     @Autowired
     public void setDao(BaseEntityDao<Car> carDao, BaseEntityDao<Advt> advtDao,
-                       BaseEntityDao<CarBrand> carBrandDao, BaseEntityDao<BodyType> bodyTypeDao) {
+                       BaseEntityDao<CarBrand> carBrandDao, BaseEntityDao<BodyType> bodyTypeDao,
+                       BaseEntityDao<CarModel> carModelDao) {
         this.advtDao = advtDao;
         this.advtDao.setClazz(Advt.class);
         this.carDao = carDao;
@@ -37,6 +36,8 @@ public class AdvertService implements IAdvertService {
         this.carBrandDao.setClazz(CarBrand.class);
         this.bodyTypeDao = bodyTypeDao;
         this.bodyTypeDao.setClazz(BodyType.class);
+        this.carModelDao = carModelDao;
+        this.carModelDao.setClazz(CarModel.class);
     }
 
 
@@ -58,6 +59,11 @@ public class AdvertService implements IAdvertService {
     @Override
     public CarBrand getBrandByName(String mark) {
         return carBrandDao.getByNamedQuery("FROM CarBrand WHERE brandName=:mark", mark).get(0);
+    }
+
+    @Override
+    public List<CarModel> getModelByBrand(CarBrand carBrand) {
+        return carModelDao.getByNamedQuery("FROM CarModel WHERE brand=:carBrand", carBrand);
     }
 
     @Override

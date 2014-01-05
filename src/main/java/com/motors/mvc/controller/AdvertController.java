@@ -2,14 +2,19 @@ package com.motors.mvc.controller;
 
 import com.motors.model.account.User;
 import com.motors.model.advertisement.Advt;
+import com.motors.model.auto.CarBrand;
+import com.motors.model.auto.CarModel;
 import com.motors.model.auto.Transmission;
 import com.motors.programm.nav.BreadCrumbs;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class AdvertController extends BaseController {
@@ -34,6 +39,14 @@ public class AdvertController extends BaseController {
         modelMap.put("transmissions", advertService.getAvailableTransmissionTypes());
         session.setAttribute("advt", advertService.getNewAdvtInstance((User) session.getAttribute("user")));
         return "carService.sale";
+    }
+
+    @RequestMapping(value = "/carService/sale/ajax", method = RequestMethod.POST)
+    @ResponseBody
+    public List<CarModel> getModelsByBrand(@RequestParam(value = "brand") String brand) {
+        CarBrand carBrand = advertService.getBrandByName(brand);
+        List<CarModel> models = advertService.getModelByBrand(carBrand);
+        return models;
     }
 
     @RequestMapping(value = "/next")

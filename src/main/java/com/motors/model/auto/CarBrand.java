@@ -2,17 +2,14 @@ package com.motors.model.auto;
 
 import com.motors.model.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "CAR_BRAND", schema = "carservice")
 public class CarBrand extends BaseEntity {
 
-    @OneToMany(mappedBy = "brand")
+    @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER)
     private List<CarModel> models;
 
     @Column(name = "BRAND_NAME")

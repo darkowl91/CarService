@@ -4,6 +4,7 @@ import com.motors.model.account.User;
 import com.motors.model.advertisement.Advt;
 import com.motors.model.auto.BodyType;
 import com.motors.model.auto.CarBrand;
+import com.motors.model.auto.CarModel;
 import com.motors.model.auto.Transmission;
 
 import java.util.List;
@@ -21,5 +22,7 @@ public interface IAdvertService {
     CarBrand getBrandByName(String mark);
 
     BodyType getBodyTypeByName(String body);
+
+    public List<CarModel> getModelByBrand(CarBrand carBrand);
 
 }
