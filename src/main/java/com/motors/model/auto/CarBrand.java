@@ -18,6 +18,9 @@ public class CarBrand extends BaseEntity {
     @Column(name = "BRAND_NAME")
     private String brandName;
 
+    public CarBrand() {
+    }
+
     public List<CarModel> getModels() {
         return models;
     }

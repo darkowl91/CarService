@@ -1,5 +1,8 @@
 package com.motors.mvc.controller;
 
+import com.motors.model.account.User;
+import com.motors.model.advertisement.Advt;
+import com.motors.model.auto.Transmission;
 import com.motors.programm.nav.BreadCrumbs;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,8 +27,12 @@ public class AdvertController extends BaseController {
     }
 
     @RequestMapping(value = "/carService/sale")
-    public String newAdvert(ModelMap modelMap) {
+    public String newAdvert(ModelMap modelMap, HttpSession session) {
         modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("sale", "/carService/sale", "carService.sale"));
+        modelMap.put("brands", advertService.getAvailableBrands());
+        modelMap.put("bodyTypes", advertService.getAvailableBodyTypes());
+        modelMap.put("transmissions", advertService.getAvailableTransmissionTypes());
+        session.setAttribute("advt", advertService.getNewAdvtInstance((User) session.getAttribute("user")));
         return "carService.sale";
     }
 
@@ -35,7 +42,15 @@ public class AdvertController extends BaseController {
                                 @RequestParam(value = "model") String model,
                                 @RequestParam(value = "body") String body,
                                 @RequestParam(value = "transmission") String transmission) {
-        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("sale", "/carService/sale", "carService.sale"));
+        Advt advt = (Advt) session.getAttribute("advt");
+        advt.getCar().setBrand(advertService.getBrandByName(mark));
+        //TODO: find solution not to repeat model with brand
+        //advt.getCar().setModel();
+        advt.getCar().setBody(advertService.getBodyTypeByName(body));
+        advt.getCar().setTransmission(Transmission.valueOf(transmission));
+
+
+//        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("sale", "/carService/sale", "carService.sale"));
         return "carService.sale";
     }
 

@@ -18,6 +18,9 @@ public class Car extends BaseEntity {
     private BigDecimal price;
 
     @ManyToOne
+    private CarBrand brand;
+
+    @ManyToOne
     private CarModel model;
 
     @OneToOne
@@ -29,12 +32,15 @@ public class Car extends BaseEntity {
     @OneToMany(mappedBy = "car")
     private List<CarPicture> pictures;
 
+    public Car() {
+    }
+
     public Date getProduceYear() {
         return produceYear;
     }
 
-    public void setProduceYear(Date pauseYear) {
-        this.produceYear = pauseYear;
+    public void setProduceYear(Date produceYear) {
+        this.produceYear = produceYear;
     }
 
     public BigDecimal getPrice() {
@@ -45,12 +51,12 @@ public class Car extends BaseEntity {
         this.price = price;
     }
 
-    public CarModel getModel() {
-        return model;
+    public CarBrand getBrand() {
+        return brand;
     }
 
-    public void setModel(CarModel model) {
-        this.model = model;
+    public void setBrand(CarBrand brand) {
+        this.brand = brand;
     }
 
     public BodyType getBody() {

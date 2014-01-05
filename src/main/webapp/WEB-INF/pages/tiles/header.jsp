@@ -35,7 +35,8 @@
                     <li><a href="#"><i class="fa fa-envelope"></i><spring:message code="header.label.Inbox"/>
                             <%--TODO: Add message option--%>
                         <span class="badge">7</span></a></li>
-                    <li><a id="settings" href="<c:url value="/carService/profileSettings"/>"><i class="fa fa-gear"></i><spring:message code="header.label.Settings"/></a></li>
+                    <li><a id="settings" href="<c:url value="/carService/profileSettings"/>"><i
+                            class="fa fa-gear"></i><spring:message code="header.label.Settings"/></a></li>
                     <li class="divider"></li>
 
                     <li><a href="<c:url value="/j_spring_security_logout"/>"><i class="fa fa-power-off"></i>Log Out</a>

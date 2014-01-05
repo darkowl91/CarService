@@ -2,8 +2,10 @@ package com.motors.model.auto;
 
 import com.motors.model.BaseEntity;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "CAR_MODEL", schema = "carservice")
@@ -15,9 +17,8 @@ public class CarModel extends BaseEntity {
     @Column(name = "MODEL_NAME")
     private String modelName;
 
-    @OneToMany(mappedBy = "model")
-    private List<Car> cars;
-
+    public CarModel() {
+    }
 
     public CarBrand getBrand() {
         return brand;

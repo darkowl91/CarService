@@ -4,7 +4,6 @@ import com.motors.model.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,8 +13,8 @@ public class BodyType extends BaseEntity {
     @Column(name = "TYPE_NAME")
     private String typeName;
 
-    @OneToOne
-    private Car car;
+    public BodyType() {
+    }
 
     public String getTypeName() {
         return typeName;
@@ -23,13 +22,5 @@ public class BodyType extends BaseEntity {
 
     public void setTypeName(String typeName) {
         this.typeName = typeName;
-    }
-
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
     }
 }

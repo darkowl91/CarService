@@ -12,11 +12,14 @@
             <table class="table">
                 <tr>
                     <td>
-                        Car mark:
+                        Car brand:
                     </td>
                     <td>
-                        <select name="yearpicker" class="form-control">
-                            <option>1</option>
+                        <select name="brand" class="form-control">
+                            <option></option>
+                            <c:forEach var="carBrand" items="${brands}">
+                                <option>${carBrand.brandName}</option>
+                            </c:forEach>
                         </select>
                     </td>
                 </tr>
@@ -26,8 +29,11 @@
                         Car model:
                     </td>
                     <td>
-                        <select name="yearpicker" class="form-control">
-                            <option>1</option>
+                        <select name="model" class="form-control">
+                            <option></option>
+                            <c:forEach var="carModel" items="${models}">
+                                <option>${carModel.modelName}</option>
+                            </c:forEach>
                         </select>
                     </td>
                 </tr>
@@ -37,18 +43,24 @@
                         Car body:
                     </td>
                     <td>
-                        <select name="yearpicker" class="form-control">
-                            <option>1</option>
+                        <select name="body" class="form-control">
+                            <option></option>
+                            <c:forEach var="body" items="${bodyTypes}">
+                                <option>${body.typeName}</option>
+                            </c:forEach>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Trasmossion:
+                        Transmission:
                     </td>
                     <td>
-                        <select name="yearpicker" class="form-control">
-                            <option>1</option>
+                        <select name="transmission" class="form-control">
+                            <option></option>
+                            <c:forEach var="transmission" items="${transmissions}">
+                                <option>${transmission.value}</option>
+                            </c:forEach>
                         </select>
                     </td>
                 </tr>

@@ -38,7 +38,7 @@ public class User extends BaseEntity {
     @Column(name = "REGISTRATION_DATE")
     private Date registrationDate;
 
-    @OneToMany(mappedBy = "user", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Phone> phones;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

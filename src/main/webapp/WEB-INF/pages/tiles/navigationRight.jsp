@@ -30,7 +30,8 @@
 
         <sec:authorize access="isAuthenticated()">
             <li id="profileSettings">
-                <a href="<c:url value="/carService/profileSettings"/>" class="list-group-item"><i class="fa fa-angle-left">
+                <a href="<c:url value="/carService/profileSettings"/>" class="list-group-item"><i
+                        class="fa fa-angle-left">
                     Profile settings</i></a>
             </li>
         </sec:authorize>

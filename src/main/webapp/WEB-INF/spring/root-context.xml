@@ -16,7 +16,7 @@
     <context:component-scan base-package="com.motors.mvc.service"/>
 
     <!-- Файл с настройками ресурсов для работы с данными (Data Access Resources) -->
-    <import resource="data.xml" />
+    <import resource="data.xml"/>
 
     <!-- Файл с настройками безопасности -->
     <import resource="security.xml"/>
