@@ -7441,4 +7441,22 @@ INSERT INTO carservice.car_model (ID, MODEL_NAME, brand_ID) VALUES (7344, 'S60',
 INSERT INTO carservice.car_model (ID, MODEL_NAME, brand_ID) VALUES (7345, 'C30', 94);
 INSERT INTO carservice.car_model (ID, MODEL_NAME, brand_ID) VALUES (7346, 'C70', 94);
 INSERT INTO carservice.car_model (ID, MODEL_NAME, brand_ID) VALUES (7347, 'S60', 94);
-INSERT INTO carservice.car_model (ID, MODEL_NAME, brand_ID) VALUES (7348, 'XC90', 94);
+#BODY_TYPE
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (1, 'Автобус');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (2, 'Вседорожник');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (3, 'Грузовик');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (4, 'Кабриолет');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (5, 'Купе');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (6, 'Микроавтобус');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (7, 'Минивэн');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (8, 'Мотоцкл');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (9, 'Пикап');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (10, 'Полуприцеп');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (11, 'Прицеп');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (12, 'Родстер');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (13, 'Седан');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (14, 'Седельный тягач');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (15, 'Скутер');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (16, 'Стреч');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (17, 'Универсал');
+INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (18, 'Хэтчбек');

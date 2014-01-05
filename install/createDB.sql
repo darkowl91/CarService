@@ -1,5 +1,7 @@
+DROP SCHEMA `carservice` ;
 CREATE DATABASE IF NOT EXISTS CarService
-  CHARACTER SET utf8;
+  DEFAULT CHARACTER SET utf8;
+
 
 CREATE TABLE advertisment
 (
@@ -86,3 +88,19 @@ ALTER TABLE car_model ADD FOREIGN KEY ( brand_ID ) REFERENCES car_brand ( ID );
 ALTER TABLE car_picture ADD FOREIGN KEY ( car_ID ) REFERENCES car ( ID );
 ALTER TABLE phone ADD FOREIGN KEY ( user_ID ) REFERENCES user ( ID );
 ALTER TABLE user ADD FOREIGN KEY ( picture_ID ) REFERENCES user_picture ( ID );
+
+# DO NOT USE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*INSERT INTO `carservice`.`car_brand` (BRAND_NAME)
+	SELECT DISTINCT make FROM `test`.`vehiclemodelyear`;
+*/
+
+/*INSERT INTO `carservice`.`car_model` (MODEL_NAME, brand_ID)
+
+	SELECT tv.model, cc.ID  FROM `test`.`vehiclemodelyear` as tv ,`carservice`.`car_brand` as cc
+	WHERE tv.make = cc.BRAND_NAME  */
+/*
+SELECT
+	 mark.BRAND_NAME,
+	 model.MODEL_NAME
+FROM `carservice`.`car_brand` as mark join `carservice`.`car_model` as model on mark.ID= model.brand_ID
+*/
