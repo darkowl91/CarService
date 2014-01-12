@@ -18,27 +18,15 @@
                         <select id="brand" name="brand" class="form-control" onchange="doAjax();">
                             <option></option>
                             <c:forEach var="carBrand" items="${brands}">
-                                <option>${carBrand.brandName}</option>
+                                <option value="${carBrand.id}">${carBrand.brandName}</option>
                             </c:forEach>
                         </select>
+                        <script>
+                            $('#brand').val("${advt.car.model.brand.id}");
+                        </script>
                     </td>
                 </tr>
-                <script>
-                    function doAjax() {
-                        var text = $("#brand").find("option:selected").text();
-                        $.ajax({
-                            type : 'POST',
-                            url: "/carService/sale/ajax?brand='" + text + "'",
-                            contentType : 'application/json; charset=utf-8',
-                            success: function (response) {
-                                alert(response);
-                            },
-                            error: function (e) {
-                                alert('Error: ' + e);
-                            }
-                        });
-                    }
-                </script>
+
 
                 <tr>
                     <td>
@@ -46,26 +34,30 @@
                     </td>
                     <td>
                         <select id="model" name="model" class="form-control">
-                            <option></option>
-                            <c:forEach var="carModel" items="${models}">
-                                <option>${carModel.modelName}</option>
+                            <c:forEach var="model" items="${advt.car.model.brand.models}">
+                                <option value="${model.id}">${model.modelName}</option>
                             </c:forEach>
                         </select>
+                        <script>
+                            $('#model').val("${advt.car.model.id}");
+                        </script>
                     </td>
                 </tr>
-
 
                 <tr>
                     <td>
                         Car body:
                     </td>
                     <td>
-                        <select name="body" class="form-control">
+                        <select id="body" name="body" class="form-control">
                             <option></option>
                             <c:forEach var="body" items="${bodyTypes}">
-                                <option>${body.typeName}</option>
+                                <option value="${body.id}">${body.typeName}</option>
                             </c:forEach>
                         </select>
+                        <script>
+                            $('#body').val("${advt.car.body.id}");
+                        </script>
                     </td>
                 </tr>
                 <tr>
@@ -73,25 +65,46 @@
                         Transmission:
                     </td>
                     <td>
-                        <select name="transmission" class="form-control">
-                            <option></option>
+                        <select id="transmission" name="transmission" class="form-control">
                             <c:forEach var="transmission" items="${transmissions}">
-                                <option>${transmission.value}</option>
+                                <option value="${transmission}">${transmission.value}</option>
                             </c:forEach>
                         </select>
+                        <script>
+                            $('#transmission').val("${advt.car.transmission}");
+                        </script>
                     </td>
                 </tr>
-
-
             </table>
             <div class="pull-right">
                 <ul class="pager">
-                    <li><a href="#" onclick="document.getElementById('firstStep').submit();">Next&nbsp;<i
+                    <li><a href="#" onclick="$('#firstStep').submit();">Next&nbsp;<i
                             class="fa fa-arrow-circle-right"></i></a></li>
-                    <%--<li><a href="#">Next</a></li>--%>
                 </ul>
             </div>
         </form>
     </div>
 </div>
 
+<script>
+    function doAjax() {
+        var text = $("#brand").find("option:selected").val();
+        $.ajax({
+            type: 'POST',
+            url: "/carService/sale/ajax?brandId=" + text,
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (data) {
+                $('#model').empty();
+                for (var i = 0; i < data.length; i++) {
+                    $('#model').append('<option value="' + data[i].id + '">' + data[i].modelName + '</option>');
+                }
+            },
+            error: function (data, status, er) {
+                $('#model').empty();
+                //debug
+                //alert("error: " + data + " status: " + status + " er:" + er);
+            }
+        });
+    }
+</script>

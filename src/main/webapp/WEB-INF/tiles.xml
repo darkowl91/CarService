@@ -25,9 +25,15 @@
 
     </definition>
 
+    <!--SALE-->
     <definition name="carService.sale" extends="mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/AdvertFirstForm.jsp"/>
     </definition>
+
+    <definition name="carService.sale.next" extends="mainLayout">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/AdvertSecondForm.jsp"/>
+    </definition>
+    <!--SALE END-->
 
     <definition name="carService.searchAdvert" extends="mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/advert.jsp"/>
@@ -41,5 +47,4 @@
     <definition name="carService.profileSettings" extends="mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/settingsForm.jsp"/>
     </definition>
-
 </tiles-definitions>

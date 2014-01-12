@@ -18,9 +18,6 @@ public class Car extends BaseEntity {
     private BigDecimal price;
 
     @ManyToOne
-    private CarBrand brand;
-
-    @ManyToOne
     private CarModel model;
 
     @OneToOne
@@ -51,12 +48,12 @@ public class Car extends BaseEntity {
         this.price = price;
     }
 
-    public CarBrand getBrand() {
-        return brand;
+    public CarModel getModel() {
+        return model;
     }
 
-    public void setBrand(CarBrand brand) {
-        this.brand = brand;
+    public void setModel(CarModel model) {
+        this.model = model;
     }
 
     public BodyType getBody() {

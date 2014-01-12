@@ -33,38 +33,50 @@ public class AdvertController extends BaseController {
 
     @RequestMapping(value = "/carService/sale")
     public String newAdvert(ModelMap modelMap, HttpSession session) {
+        if (session.getAttribute("advt") == null) {
+            session.setAttribute("advt", advertService.getNewAdvtInstance((User) session.getAttribute("user")));
+        }
         modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("sale", "/carService/sale", "carService.sale"));
         modelMap.put("brands", advertService.getAvailableBrands());
         modelMap.put("bodyTypes", advertService.getAvailableBodyTypes());
         modelMap.put("transmissions", advertService.getAvailableTransmissionTypes());
-        session.setAttribute("advt", advertService.getNewAdvtInstance((User) session.getAttribute("user")));
         return "carService.sale";
     }
 
     @RequestMapping(value = "/carService/sale/ajax", method = RequestMethod.POST)
     @ResponseBody
-    public List<CarModel> getModelsByBrand(@RequestParam(value = "brand") String brand) {
-        CarBrand carBrand = advertService.getBrandByName(brand);
-        List<CarModel> models = advertService.getModelByBrand(carBrand);
-        return models;
+    public List<CarModel> getModels(@RequestParam(value = "brandId") String id) {
+        CarBrand carBrand = advertService.getBrandById(Long.valueOf(id));
+        return carBrand.getModels();
     }
 
     @RequestMapping(value = "/next")
-    public String newAdvertNext(ModelMap modelMap, HttpSession session,
-                                @RequestParam(value = "mark") String mark,
-                                @RequestParam(value = "model") String model,
-                                @RequestParam(value = "body") String body,
-                                @RequestParam(value = "transmission") String transmission) {
+    public String newAdvert(HttpSession session,
+                            @RequestParam(value = "brand") String mark,
+                            @RequestParam(value = "model") String model,
+                            @RequestParam(value = "body") String body,
+                            @RequestParam(value = "transmission") String transmission) {
         Advt advt = (Advt) session.getAttribute("advt");
-        advt.getCar().setBrand(advertService.getBrandByName(mark));
-        //TODO: find solution not to repeat model with brand
-        //advt.getCar().setModel();
-        advt.getCar().setBody(advertService.getBodyTypeByName(body));
+//      advt.getCar().setBody(advertService.getBodyTypeById(Long.valueOf(body)));
+        advt.getCar().setModel(advertService.getCarModelById(Long.valueOf(model)));
         advt.getCar().setTransmission(Transmission.valueOf(transmission));
+        return "redirect:/carService/sale/next";
+    }
+
+    @RequestMapping(value = "/carService/sale/next")
+    public String newAdvertNext(ModelMap modelMap) {
+        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("sale", "/carService/sale", "carService.sale"));
+        return "carService.sale.next";
+    }
 
 
-//        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("sale", "/carService/sale", "carService.sale"));
-        return "carService.sale";
+    @RequestMapping(value = "/next/next")
+    public String newAdvertNextNext(HttpSession session,
+                                    @RequestParam(value = "year") String year) {
+        Advt advt = (Advt) session.getAttribute("advt");
+        //advt.getCar().setProduceYear(DateUtil.getSqlDateByStrValue(year));
+
+        return "dsd";
     }
 
 

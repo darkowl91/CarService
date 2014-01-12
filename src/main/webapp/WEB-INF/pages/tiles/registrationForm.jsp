@@ -45,7 +45,7 @@
 
                     <div class="field-box">
                         <label>Photo:</label>
-                        <input type="file" class="btn btn-link" name="photo">
+                        <input type="file" class="form-control" name="photo">
                     </div>
 
                     <br/>

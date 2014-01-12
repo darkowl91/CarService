@@ -57,13 +57,8 @@ public class AdvertService implements IAdvertService {
     }
 
     @Override
-    public CarBrand getBrandByName(String mark) {
-        return carBrandDao.getByNamedQuery("FROM CarBrand WHERE brandName=:mark", mark).get(0);
-    }
-
-    @Override
-    public List<CarModel> getModelByBrand(CarBrand carBrand) {
-        return carModelDao.getByNamedQuery("FROM CarModel WHERE brand=:carBrand", carBrand);
+    public CarBrand getBrandById(Long id) {
+        return carBrandDao.getById(id);
     }
 
     @Override
@@ -72,8 +67,13 @@ public class AdvertService implements IAdvertService {
     }
 
     @Override
-    public BodyType getBodyTypeByName(String body) {
-        return bodyTypeDao.getByNamedQuery("FROM BodyType WHERE typeName=:body", body).get(0);
+    public BodyType getBodyTypeById(Long id) {
+        return bodyTypeDao.getById(id);
+    }
+
+    @Override
+    public CarModel getCarModelById(Long id) {
+        return carModelDao.getById(id);
     }
 
     @Override

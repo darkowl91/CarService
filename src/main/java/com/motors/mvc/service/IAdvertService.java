@@ -19,10 +19,10 @@ public interface IAdvertService {
 
     List<Transmission> getAvailableTransmissionTypes();
 
-    CarBrand getBrandByName(String mark);
+    CarBrand getBrandById(Long id);
 
-    BodyType getBodyTypeByName(String body);
+    BodyType getBodyTypeById(Long Id);
 
-    public List<CarModel> getModelByBrand(CarBrand carBrand);
+    CarModel getCarModelById(Long id);
 
 }
