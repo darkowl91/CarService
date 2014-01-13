@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="row clearfix">
 
@@ -11,15 +12,21 @@
                 <%--BRAND--%>
                 <div class="field-box">
                     <label>Car brand:</label>
-                    <select class="form-control">
-                        <option>1</option>
+                    <select id="brand" name="brand" class="form-control" onchange="doAjax();">
+                        <option></option>
+                        <c:forEach var="carBrand" items="${brands}">
+                            <option value="${carBrand.id}">${carBrand.brandName}</option>
+                        </c:forEach>
                     </select>
                 </div>
-                <%--BRAND--%>
+                <%--MODEL--%>
                 <div class="field-box">
                     <label>Car model:</label>
-                    <select class="form-control">
-                        <option>1</option>
+                    <select id="model" name="model" class="form-control">
+                        <option></option>
+                        <c:forEach var="model" items="${advt.car.model.brand.models}">
+                            <option value="${model.id}">${model.modelName}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <%--PRODUCE YEAR--%>
@@ -38,15 +45,21 @@
                 <%--BODY TYPE--%>
                 <div class="field-box">
                     <label>Body Type:</label>
-                    <select class="form-control">
-                        <option>1</option>
+                    <select id="body" name="body" class="form-control">
+                        <option></option>
+                        <c:forEach var="body" items="${bodyTypes}">
+                            <option value="${body.id}">${body.typeName}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <%--TRANSMISSION--%>
                 <div class="field-box">
                     <label>Transmission:</label>
-                    <select class="form-control">
-                        <option>1</option>
+                    <select id="transmission" name="transmission" class="form-control">
+                        <option></option>
+                        <c:forEach var="transmission" items="${transmissions}">
+                            <option value="${transmission}">${transmission.value}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <%--PRICE--%>
@@ -62,3 +75,26 @@
         </div>
     </div>
 </div>
+
+<script>
+    function doAjax() {
+        var text = $("#brand").find("option:selected").val();
+        $.ajax({
+            type: 'POST',
+            url: "/carService/sale/ajax?brandId=" + text,
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (data) {
+                $('#model').empty();
+                for (var i = 0; i < data.length; i++) {
+                    $('#model').append('<option value="' + data[i].id + '">' + data[i].modelName + '</option>');
+                }
+            },
+            error: function (data, status, er) {
+                $('#model').empty();
+                //debug
+                //alert("error: " + data + " status: " + status + " er:" + er);
+            }
+        });
+    }
+</script>

@@ -20,13 +20,13 @@ public class Car extends BaseEntity {
     @ManyToOne
     private CarModel model;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private BodyType body;
 
     @Column(name = "TRANSMISSION")
     private Transmission transmission;
 
-    @OneToMany(mappedBy = "car")
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
     private List<CarPicture> pictures;
 
     public Car() {

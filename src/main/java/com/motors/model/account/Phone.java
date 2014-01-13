@@ -26,10 +26,11 @@ public class Phone extends BaseEntity {
     public Phone() {
     }
 
-    public Phone(String operator, String phoneValue, String type) {
+    public Phone(String operator, String phoneValue, String type, User user) {
         this.operator = operator;
         this.phoneValue = phoneValue;
         this.type = type;
+        this.user = user;
     }
 
     public String getOperator() {

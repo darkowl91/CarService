@@ -11,10 +11,10 @@ import java.sql.Date;
 @Table(name = "ADVERTISMENT", schema = "carservice")
 public class Advt extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private User user;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Car car;
 
     @Column(name = "NOTE")

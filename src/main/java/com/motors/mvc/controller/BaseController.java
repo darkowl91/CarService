@@ -2,6 +2,7 @@ package com.motors.mvc.controller;
 
 import com.motors.mvc.service.IAccountService;
 import com.motors.mvc.service.IAdvertService;
+import com.motors.mvc.service.ICarService;
 import com.motors.programm.nav.BreadCrumbs;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public abstract class BaseController {
 
     @Autowired
     protected IAdvertService advertService;
+
+    @Autowired
+    protected ICarService carService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public String startPage(ModelMap modelMap) {

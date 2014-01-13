@@ -1,6 +1,8 @@
 package com.motors.programm.util;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public final class DateUtil {
     public static final String PATTERN_YYYY_MM_DD = "YYYY-MM-DD";
@@ -27,5 +29,16 @@ public final class DateUtil {
         }
         java.sql.Date sqlDate = Date.valueOf(dateStr);
         return sqlDate;
+    }
+
+    public static java.sql.Date getSqlDateYear(String year) {
+        SimpleDateFormat formatYear = new SimpleDateFormat("YYYY");
+        java.util.Date yearDate = new java.util.Date();
+        try {
+            yearDate = formatYear.parse(year);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new java.sql.Date(yearDate.getTime());
     }
 }

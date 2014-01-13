@@ -13,16 +13,7 @@ public interface IAdvertService {
 
     Advt getNewAdvtInstance(User user);
 
-    List<CarBrand> getAvailableBrands();
 
-    List<BodyType> getAvailableBodyTypes();
-
-    List<Transmission> getAvailableTransmissionTypes();
-
-    CarBrand getBrandById(Long id);
-
-    BodyType getBodyTypeById(Long Id);
-
-    CarModel getCarModelById(Long id);
+    void saveAdvt(Advt advt);
 
 }

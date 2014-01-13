@@ -61,7 +61,7 @@ public class AccountController extends BaseController {
             String operator = request.getParameter("operator_" + i);
             String number = request.getParameter("number_" + i);
             String type = request.getParameter("type_" + i);
-            user.getPhones().add(new Phone(operator, number, type));
+            user.getPhones().add(new Phone(operator, number, type, user));
         }
         user.setBirthDay(DateUtil.getSqlDateByStrValue(birthday));
         accountService.saveUser(user);

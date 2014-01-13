@@ -36,7 +36,7 @@
 
         <form class="form-horizontal" role="form" method="post" action="<c:url value="/editProfile"/>">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Birthday: ${user.birthDay}</label>
+                <label class="col-sm-2 control-label">Birthday: </label>
 
                 <div class="col-sm-10">
                     <input class="form-control small" type="date" name="birthday" value="${user.birthDay}">
@@ -51,30 +51,36 @@
                             <label class="control-label">Operator:</label>
                         </td>
                         <td>
-                            <select class="form-control" name="operator_${i}" id="operator">
+                            <select class="form-control" name="operator_${i}" id="operator_${i}">
                                 <option></option>
                                 <option value="(017)">Белтелеком</option>
                                 <option value="(29)">Velcome</option>
                                 <option value="(44)">MTC</option>
                                 <option value="(25)">Life</option>
                             </select>
+                            <script>
+                                $("#operator_${i}").val("${user.phones[i].operator}");
+                            </script>
                         </td>
                         <td>
                             <label class="control-label">Number:</label>
                         </td>
                         <td>
-                            <input class="form-control" type="tel" name="number_${i}">
+                            <input class="form-control" type="tel" name="number_${i}" value="${user.phones[i].phoneValue}">
                         </td>
                         <td>
                             <label class="control-label">Type:</label>
                         </td>
                         <td>
-                            <select class="form-control" name="type_${i}">
+                            <select class="form-control" id="type_${i}" name="type_${i}">
                                 <option></option>
                                 <option value="home">Домашний</option>
                                 <option value="work">Рабочий</option>
                                 <option value="mobile">Мобильный</option>
                             </select>
+                            <script>
+                                $("#type_${i}").val("${user.phones[i].type}");
+                            </script>
                         </td>
                     </tr>
                 </c:forEach>

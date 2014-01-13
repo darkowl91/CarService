@@ -29,7 +29,6 @@
 
                 </tr>
 
-
                 <tr>
                     <td>
                         Price:
@@ -44,10 +43,9 @@
                         Photos:
                     </td>
                     <td>
-                        <input type="file" name="photos" class="form-control" multiple>
+                        <input type="file" name="photo" class="form-control" multiple>
                     </td>
                 </tr>
-
 
                 <tr>
                     <td>
