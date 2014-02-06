@@ -1,6 +1,8 @@
 package com.motors.dao;
 
 import com.motors.model.BaseEntity;
+import com.motors.programm.nav.Page;
+import com.motors.programm.nav.PageImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,4 +69,22 @@ public abstract class BaseEntityDao<T extends BaseEntity> implements IEntityDao<
         }
         return query.list();
     }
+
+    @Override
+    public long getCount() {
+        return (Long) getCurrentSession().createQuery("Select Count(*) From " + clazz.getName()).uniqueResult();
+    }
+
+    @Override
+    public Page<T> getPage(int pageNumber, int pageSize, String orderBy) {
+        long totalNumber = getCount();
+        Query query = getCurrentSession().createQuery("From " + clazz.getName() + " " + orderBy );
+        int firstResult = (pageNumber - 1) * pageSize;
+        query.setFirstResult(firstResult);
+        query.setMaxResults(pageSize);
+        List<T> list = query.list();
+        Page<T> page = new PageImpl<T>(list, pageNumber, pageSize, totalNumber);
+        return page;
+    }
+
 }

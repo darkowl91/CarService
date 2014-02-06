@@ -8,7 +8,7 @@
             <h3 class="panel-title"><i class="fa fa-search"></i>Search</h3>
         </div>
         <div class="panel-body">
-            <form name="registration-form" method="post" action="advert">
+            <form name="registration-form" method="post" class="form-inline" action="searchAdvt">
                 <%--BRAND--%>
                 <div class="field-box">
                     <label>Car brand:</label>
@@ -32,7 +32,7 @@
                 <%--PRODUCE YEAR--%>
                 <div class="field-box">
                     <label>Produce year:</label>
-                    <select name="yearpicker" id="yearpicker" class="form-control">
+                    <select name="year" id="yearpicker" class="form-control">
                         <script>
                             var myDate = new Date();
                             var year = myDate.getFullYear();
@@ -64,8 +64,37 @@
                 </div>
                 <%--PRICE--%>
                 <div class="field-box">
+
                     <label>Price:</label>
-                    <input class="form-control" type="text">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="priceFrom">From:</label>
+                            </td>
+                            <td>
+                                <select name="prise_From" id="priceFrom" class="form-control input-sm">
+                                    <script>
+                                        for (var i = 501; i < 55001; i+=1000) {
+                                            document.write('<option value="' + i + '">' + i + '</option>');
+                                        }
+                                    </script>
+                                </select>
+                            </td>
+
+                            <td colspan="50">
+                                <label for="priceTo">To:</label>
+                            </td>
+                            <td>
+                                <select name="price_To" id="priceTo" class="form-control input-sm">
+                                    <script>
+                                        for (var i = 501; i < 55001; i+=1000) {
+                                            document.write('<option value="' + i + '">' + i + '</option>');
+                                        }
+                                    </script>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
                 <br/>

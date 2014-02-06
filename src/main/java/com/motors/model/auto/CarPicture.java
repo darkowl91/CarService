@@ -21,9 +21,10 @@ public class CarPicture extends BaseEntity {
     @Transient
     private String imageAsString;
 
-    public CarPicture(String pictureName, byte[] image) {
+    public CarPicture(String pictureName, byte[] image, Car car) {
         this.pictureName = pictureName;
         this.image = image;
+        this.car = car;
     }
 
     public CarPicture() {

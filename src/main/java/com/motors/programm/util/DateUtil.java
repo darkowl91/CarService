@@ -31,6 +31,12 @@ public final class DateUtil {
         return sqlDate;
     }
 
+    /**
+     * Convert string value of year to java.sql.date
+     *
+     * @param year
+     * @return
+     */
     public static java.sql.Date getSqlDateYear(String year) {
         SimpleDateFormat formatYear = new SimpleDateFormat("YYYY");
         java.util.Date yearDate = new java.util.Date();
@@ -41,4 +47,6 @@ public final class DateUtil {
         }
         return new java.sql.Date(yearDate.getTime());
     }
+
+
 }

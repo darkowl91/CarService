@@ -2,11 +2,9 @@ package com.motors.mvc.controller;
 
 import com.motors.model.account.User;
 import com.motors.model.advertisement.Advt;
-import com.motors.model.auto.CarBrand;
-import com.motors.model.auto.CarModel;
-import com.motors.model.auto.CarPicture;
-import com.motors.model.auto.Transmission;
+import com.motors.model.auto.*;
 import com.motors.programm.nav.BreadCrumbs;
+import com.motors.programm.nav.PageImpl;
 import com.motors.programm.util.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,10 +23,10 @@ import java.util.List;
 public class AdvertController extends BaseController {
 
 
-
     @RequestMapping(value = "/carService/adverts")
     public String advertsList(ModelMap modelMap) {
         modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("adverts", "/carService/adverts", "carService.adverts"));
+        modelMap.put(PageImpl.BEAN_NAME, advertService.getPageTop(10));
         return "carService.adverts";
     }
 
@@ -78,12 +76,13 @@ public class AdvertController extends BaseController {
                                     @RequestParam(value = "photo") List<MultipartFile> photos,
                                     @RequestParam(value = "note") String note) {
         Advt advt = (Advt) session.getAttribute("advt");
-        advt.getCar().setProduceYear(DateUtil.getSqlDateYear(year));
-        advt.getCar().setPrice(new BigDecimal(Double.valueOf(price)));
+        Car advtCar = advt.getCar();
+        advtCar.setProduceYear(DateUtil.getSqlDateYear(year));
+        advtCar.setPrice(new BigDecimal(Double.valueOf(price)));
         //TODO: check file size
         try {
             for (MultipartFile photo : photos) {
-                advt.getCar().getPictures().add(new CarPicture(photo.getName(), photo.getBytes()));
+                advtCar.getPictures().add(new CarPicture(photo.getName(), photo.getBytes(), advtCar));
             }
         } catch (IOException e) {
             LOG.error("Upload user photo", e);

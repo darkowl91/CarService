@@ -5,12 +5,14 @@ import com.motors.model.account.User;
 import com.motors.model.advertisement.Advt;
 import com.motors.model.auto.Car;
 import com.motors.model.auto.CarPicture;
+import com.motors.programm.nav.Page;
 import com.motors.programm.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
+import java.sql.Date;
+import java.util.HashSet;
 
 @Service("IAdvertService")
 @Transactional
@@ -30,7 +32,7 @@ public class AdvertService implements IAdvertService {
         Advt advt = new Advt();
         advt.setDate(DateUtil.getDateNow());
         Car car = new Car();
-        car.setPictures(new ArrayList<CarPicture>());
+        car.setPictures(new HashSet<CarPicture>());
         advt.setCar(car);
         advt.setVerified(false);
         advt.setUser(user);
@@ -40,5 +42,11 @@ public class AdvertService implements IAdvertService {
     @Override
     public void saveAdvt(Advt advt) {
         advtDao.saveUpdate(advt);
+    }
+
+    @Override
+    public Page getPageTop(int top) {
+        Date dateNow = DateUtil.getDateNow();
+        return advtDao.getPage(1, top, "order by date asc");
     }
 }

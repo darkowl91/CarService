@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "CAR", schema = "carservice")
@@ -26,8 +27,8 @@ public class Car extends BaseEntity {
     @Column(name = "TRANSMISSION")
     private Transmission transmission;
 
-    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
-    private List<CarPicture> pictures;
+    @OneToMany(mappedBy = "car", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<CarPicture> pictures;
 
     public Car() {
     }
@@ -72,11 +73,11 @@ public class Car extends BaseEntity {
         this.transmission = transmission;
     }
 
-    public List<CarPicture> getPictures() {
+    public Set<CarPicture> getPictures() {
         return pictures;
     }
 
-    public void setPictures(List<CarPicture> pictures) {
+    public void setPictures(Set<CarPicture> pictures) {
         this.pictures = pictures;
     }
 }

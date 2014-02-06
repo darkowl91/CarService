@@ -17,6 +17,13 @@ public final class ImageUtil {
         return instance;
     }
 
+    /**
+     * Encode byte image to byte string ISO-8859-2
+     *
+     * @param image
+     * @param ifNull
+     * @return
+     */
     public String getEncoded(byte[] image, String ifNull) {
         try {
             return new String(Base64.encodeBase64(image), "ISO-8859-2");
