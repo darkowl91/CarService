@@ -1,7 +1,12 @@
-DROP SCHEMA `carservice` ;
+UPDATE mysql.user SET Password=PASSWORD('root') WHERE User='root';
+FLUSH PRIVILEGES;
+
+DROP SCHEMA IF EXISTS CarService;
+
 CREATE DATABASE IF NOT EXISTS CarService
   DEFAULT CHARACTER SET utf8;
 
+USE CarService;
 
 CREATE TABLE advertisment
 (
