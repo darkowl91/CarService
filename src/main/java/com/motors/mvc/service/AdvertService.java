@@ -41,7 +41,7 @@ public class AdvertService implements IAdvertService {
 
     @Override
     public void saveAdvt(Advt advt) {
-        advtDao.saveUpdate(advt);
+        advtDao.save(advt);
     }
 
     @Override

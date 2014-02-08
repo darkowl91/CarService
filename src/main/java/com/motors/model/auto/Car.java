@@ -5,7 +5,6 @@ import com.motors.model.BaseEntity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +20,7 @@ public class Car extends BaseEntity {
     @ManyToOne
     private CarModel model;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private BodyType body;
 
     @Column(name = "TRANSMISSION")

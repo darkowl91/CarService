@@ -38,6 +38,11 @@ public abstract class BaseEntityDao<T extends BaseEntity> implements IEntityDao<
     }
 
     @Override
+    public void save(T baseEntity) {
+        getCurrentSession().save(baseEntity);
+    }
+
+    @Override
     public void remove(T baseEntity) {
         getCurrentSession().delete(baseEntity);
     }
