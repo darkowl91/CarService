@@ -11,7 +11,7 @@ import java.sql.Date;
 @Table(name = "ADVERTISMENT", schema = "carservice")
 public class Advt extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE )
     private User user;
 
     @OneToOne(cascade=CascadeType.ALL)
