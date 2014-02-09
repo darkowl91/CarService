@@ -13,10 +13,12 @@
             <a href="<c:url value="/carService/news"/>" class="list-group-item"><i class="fa fa-angle-left">
                 News</i></a>
         </li>
+        <sec:authorize access="isAuthenticated()">
         <li id="sale">
             <a href="<c:url value="/carService/sale"/>" class="list-group-item"><i class="fa fa-angle-left"> Car
                 Sale</i></a>
         </li>
+        </sec:authorize>
         <li id="searchAdvert">
             <a href="<c:url value="/carService/searchAdvert"/>" class="list-group-item"><i class="fa fa-angle-left">
                 Search</i></a>

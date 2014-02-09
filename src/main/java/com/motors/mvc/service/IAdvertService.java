@@ -10,6 +10,6 @@ public interface IAdvertService {
 
     void saveAdvt(Advt advt);
 
-    Page getPageTop(int top);
+    Page getNextPage(int pageNumber, int pageSize);
 
 }

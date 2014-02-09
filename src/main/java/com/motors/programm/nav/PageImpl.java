@@ -49,7 +49,6 @@ public final class PageImpl<Entity> implements Page<Entity>, Iterable<Entity> {
         return totalNumberOfElements;
     }
 
-
     @Override
     public int getTotalPages() {
         if (getNumberOfElements() == 0) {

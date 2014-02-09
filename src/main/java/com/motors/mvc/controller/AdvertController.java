@@ -22,11 +22,10 @@ import java.util.List;
 @Controller
 public class AdvertController extends BaseController {
 
-
     @RequestMapping(value = "/carService/adverts")
     public String advertsList(ModelMap modelMap) {
         modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("adverts", "/carService/adverts", "carService.adverts"));
-        modelMap.put(PageImpl.BEAN_NAME, advertService.getPageTop(10));
+        modelMap.put(PageImpl.BEAN_NAME, advertService.getNextPage(1, 10));
         return "carService.adverts";
     }
 
@@ -68,7 +67,6 @@ public class AdvertController extends BaseController {
         return "carService.sale.next";
     }
 
-
     @RequestMapping(value = "/next/next")
     public String newAdvertNextNext(HttpSession session,
                                     @RequestParam(value = "year") String year,
@@ -91,5 +89,12 @@ public class AdvertController extends BaseController {
         advertService.saveAdvt(advt);
         session.removeAttribute("advt");
         return "redirect:/carService/sale/next";
+    }
+
+    @RequestMapping(value = "/carService/adverts/page")
+    public String nextPage(@RequestParam(value = "pageNumber") String pageNumber, ModelMap modelMap) {
+        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("adverts", "/carService/adverts", "carService.adverts"));
+        modelMap.put(PageImpl.BEAN_NAME, advertService.getNextPage(Integer.valueOf(pageNumber), 10));
+        return "carService.adverts";
     }
 }

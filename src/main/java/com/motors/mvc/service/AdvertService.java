@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.util.HashSet;
 
 @Service("IAdvertService")
@@ -44,9 +43,7 @@ public class AdvertService implements IAdvertService {
         advtDao.save(advt);
     }
 
-    @Override
-    public Page getPageTop(int top) {
-        Date dateNow = DateUtil.getDateNow();
-        return advtDao.getPage(1, top, "order by date asc");
+    public Page getNextPage(int pageNumber, int pageSize){
+        return advtDao.getPage(pageNumber, pageSize, "order by date asc");
     }
 }
