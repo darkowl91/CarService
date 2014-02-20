@@ -97,4 +97,35 @@ public class AdvertController extends BaseController {
         modelMap.put(PageImpl.BEAN_NAME, advertService.getNextPage(Integer.valueOf(pageNumber), 10));
         return "carService.adverts";
     }
+
+    @RequestMapping(value = "/carService/manageAdvts")
+    public String manageAdvts(ModelMap modelMap) {
+        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("manageAdvts", "/carService/manageAdvts", "carService.adverts.manage"));
+        modelMap.put("advtToDelete", advertService.getAdvtToDelete());
+        modelMap.put("advtToVerifyCount", advertService.getAdvtToVerify().size());
+        return "carService.adverts.manage";
+    }
+
+    @RequestMapping(value = "/carService/manageAdvts/verify")
+    public String verifyAdvts(ModelMap modelMap) {
+        modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("manageAdvts", "/carService/manageAdvts", "carService.adverts.manage"));
+        modelMap.put("advtToVerify", advertService.getAdvtToVerify());
+        modelMap.put("advtToVerifyCount", advertService.getAdvtToVerify().size());
+        return "carService.adverts.manage.verify";
+    }
+
+    @RequestMapping(value = "/advtVerify")
+    public String verifyAdvt(@RequestParam(value = "advtId") String advtId) {
+        Advt advt = advertService.getAdvtById(Long.valueOf(advtId));
+        advt.setVerified(true);
+        advertService.saveUpdateAdvt(advt);
+        return "redirect: /carService/manageAdvts/verify";
+    }
+
+    @RequestMapping(value = "/advtDelete")
+    public String deleteAdvt(@RequestParam(value = "advtId") String advtId) {
+        Advt advt = advertService.getAdvtById(Long.valueOf(advtId));
+        advertService.deleteAdvt(advt);
+        return "redirect: /carService/manageAdvts";
+    }
 }

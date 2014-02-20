@@ -8,7 +8,7 @@
             <h3 class="panel-title"><i class="fa fa-search"></i>Search</h3>
         </div>
         <div class="panel-body">
-            <form name="registration-form" method="post" class="form-inline" action="searchAdvt">
+            <form name="registration-form" method="post" class="form-inline" action="/searchAdvt">
                 <%--BRAND--%>
                 <div class="field-box">
                     <label>Car brand:</label>
@@ -72,7 +72,7 @@
                                 <label for="priceFrom">From:</label>
                             </td>
                             <td>
-                                <select name="prise_From" id="priceFrom" class="form-control input-sm">
+                                <select name="price_from" id="priceFrom" class="form-control input-sm">
                                     <script>
                                         for (var i = 501; i < 55001; i+=1000) {
                                             document.write('<option value="' + i + '">' + i + '</option>');
@@ -85,7 +85,7 @@
                                 <label for="priceTo">To:</label>
                             </td>
                             <td>
-                                <select name="price_To" id="priceTo" class="form-control input-sm">
+                                <select name="price_to" id="priceTo" class="form-control input-sm">
                                     <script>
                                         for (var i = 501; i < 55001; i+=1000) {
                                             document.write('<option value="' + i + '">' + i + '</option>');

@@ -24,7 +24,7 @@ public abstract class BaseEntityDao<T extends BaseEntity> implements IEntityDao<
 
     @Override
     public List<T> getAll() {
-        return getCurrentSession().createQuery("From " + clazz.getName()).list();
+        return getCurrentSession().createQuery(getQueryPartFrom()).list();
     }
 
     @Override
@@ -77,13 +77,13 @@ public abstract class BaseEntityDao<T extends BaseEntity> implements IEntityDao<
 
     @Override
     public long getCount() {
-        return (Long) getCurrentSession().createQuery("Select Count(*) From " + clazz.getName()).uniqueResult();
+        return (Long) getCurrentSession().createQuery("Select Count(*) " + getQueryPartFrom()).uniqueResult();
     }
 
     @Override
     public Page<T> getPage(int pageNumber, int pageSize, String orderBy) {
         long totalNumber = getCount();
-        Query query = getCurrentSession().createQuery("From " + clazz.getName() + " " + orderBy );
+        Query query = getCurrentSession().createQuery(getQueryPartFrom() + orderBy );
         int firstResult = (pageNumber - 1) * pageSize;
         query.setFirstResult(firstResult);
         query.setMaxResults(pageSize);
@@ -92,4 +92,7 @@ public abstract class BaseEntityDao<T extends BaseEntity> implements IEntityDao<
         return page;
     }
 
+    public String getQueryPartFrom() {
+        return "FROM " + clazz.getName() + " ";
+    }
 }

@@ -14,7 +14,7 @@ public class Advt extends BaseEntity {
     @ManyToOne(cascade = CascadeType.MERGE )
     private User user;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     private Car car;
 
     @Column(name = "NOTE")

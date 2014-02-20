@@ -1118,4 +1118,10 @@ INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (15, 'Скутер');
 INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (16, 'Стреч');
 INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (17, 'Универсал');
 INSERT INTO carservice.body_type (ID, TYPE_NAME) VALUES (18, 'Хэтчбек');
+#USER
+INSERT INTO `carservice`.`user` (`ID`, `ENABLED`, `PASSWORD`, `USERNAME`) VALUES ('1', 1, '123', 'TestUser');
+INSERT INTO `carservice`.`user` (`ID`, `ENABLED`, `PASSWORD`, `USERNAME`) VALUES ('2', 1, '123', 'TestAdmin');
+#ROLES
+INSERT INTO `carservice`.`authorities` (`ID`, `AUTHORITY`, `user_ID`) VALUES ('1', 'ROLE_USER', '1');
+INSERT INTO `carservice`.`authorities` (`ID`, `AUTHORITY`, `user_ID`) VALUES ('2', 'ROLE_ADMIN', '2');
 

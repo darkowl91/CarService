@@ -15,7 +15,9 @@ public class SearchController extends BaseController {
     @RequestMapping(value = "/carService/searchAdvert")
     public String search(ModelMap modelMap) {
         modelMap.put(BreadCrumbs.BEAN_NAME, new BreadCrumbs("searchAdvert", "/carService/searchAdvert", "carService.searchAdvert"));
+
         modelMap.put(PageImpl.BEAN_NAME, advertService.getNextPage(1,10));
+
         modelMap.put("brands", carService.getAvailableBrands());
         modelMap.put("bodyTypes", carService.getAvailableBodyTypes());
         modelMap.put("transmissions", carService.getAvailableTransmissionTypes());

@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 
 @Service("IAdvertService")
 @Transactional
 public class AdvertService implements IAdvertService {
 
     BaseEntityDao<Advt> advtDao;
-
 
     @Autowired
     public void setDao(BaseEntityDao<Advt> advtDao) {
@@ -43,7 +43,36 @@ public class AdvertService implements IAdvertService {
         advtDao.save(advt);
     }
 
+    @Override
+    public void saveUpdateAdvt(Advt advt) {
+        advtDao.saveUpdate(advt);
+    }
+
+    @Override
     public Page getNextPage(int pageNumber, int pageSize){
         return advtDao.getPage(pageNumber, pageSize, "order by date asc");
+    }
+
+    public Page searchPage() {
+        return null;
+    }
+
+    public List<Advt> getAdvtToVerify() {
+        return advtDao.getByNamedQuery(advtDao.getQueryPartFrom() + "WHERE " + "verified=:verified", false);
+    }
+
+    @Override
+    public Advt getAdvtById(Long id) {
+        return advtDao.getById(id);
+    }
+
+    @Override
+    public  List<Advt> getAdvtToDelete(){
+        return advtDao.getByNamedQuery(advtDao.getQueryPartFrom() + "WHERE " + "verified=:verified", true);
+    }
+
+    @Override
+    public void deleteAdvt(Advt advt){
+        advtDao.remove(advt);
     }
 }

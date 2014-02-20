@@ -47,4 +47,14 @@
     <definition name="carService.profileSettings" extends="mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/settingsForm.jsp"/>
     </definition>
+
+    <definition name="carService.adverts.manage" extends="mainLayout">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/manageAdvts.jsp"/>
+        <put-attribute name="navLeft" value="/WEB-INF/pages/tiles/todoAdvt.jsp"/>
+    </definition>
+
+    <definition name="carService.adverts.manage.verify" extends="mainLayout">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/verifyAdvts.jsp"/>
+        <put-attribute name="navLeft" value="/WEB-INF/pages/tiles/todoAdvt.jsp"/>
+    </definition>
 </tiles-definitions>

@@ -9,20 +9,24 @@
             <a href="<c:url value="/carService/adverts"/>" class="list-group-item"><i class="fa fa-angle-left ">
                 Advertisements</i></a>
         </li>
-        <li id="news">
-            <a href="<c:url value="/carService/news"/>" class="list-group-item"><i class="fa fa-angle-left">
-                News</i></a>
-        </li>
-        <sec:authorize access="isAuthenticated()">
+
+        <%--<li id="news">--%>
+            <%--<a href="<c:url value="/carService/news"/>" class="list-group-item"><i class="fa fa-angle-left">--%>
+                <%--News</i></a>--%>
+        <%--</li>--%>
+
+        <sec:authorize access="hasRole('ROLE_USER')">
         <li id="sale">
             <a href="<c:url value="/carService/sale"/>" class="list-group-item"><i class="fa fa-angle-left"> Car
                 Sale</i></a>
         </li>
         </sec:authorize>
+
         <li id="searchAdvert">
             <a href="<c:url value="/carService/searchAdvert"/>" class="list-group-item"><i class="fa fa-angle-left">
                 Search</i></a>
         </li>
+
         <sec:authorize access="isAnonymous()">
             <li id="register">
                 <a href="<c:url value="/carService/register"/>" class="list-group-item"><i class="fa fa-angle-left">
@@ -30,11 +34,18 @@
             </li>
         </sec:authorize>
 
-        <sec:authorize access="isAuthenticated()">
+        <sec:authorize access="hasRole('ROLE_USER')">
             <li id="profileSettings">
                 <a href="<c:url value="/carService/profileSettings"/>" class="list-group-item"><i
                         class="fa fa-angle-left">
                     Profile settings</i></a>
+            </li>
+        </sec:authorize>
+
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
+            <li id="manageAdvts">
+                <a href="<c:url value="/carService/manageAdvts"/>" class="list-group-item"><i class="fa fa-angle-left">
+                    Manage advertisements</i></a>
             </li>
         </sec:authorize>
     </ul>
