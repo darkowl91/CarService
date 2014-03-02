@@ -15,6 +15,10 @@ public final class PageImpl<Entity> implements Page<Entity>, Iterable<Entity> {
 
     public PageImpl(List<Entity> content) {
         this.content = content;
+//        this.pageNumber =1;
+//        this.pageSize = content.size();
+//        this.totalNumberOfElements = content.size();
+
     }
 
     public PageImpl(List<Entity> content, int pageNumber, int pageSize, long totalNumberOfElements) {

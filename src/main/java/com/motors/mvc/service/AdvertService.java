@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 @Service("IAdvertService")
 @Transactional
@@ -53,8 +54,28 @@ public class AdvertService implements IAdvertService {
         return advtDao.getPage(pageNumber, pageSize, "order by date asc");
     }
 
-    public Page searchPage() {
-        return null;
+    @Override
+    public List<Advt> search(Map<String, Object> searchParams) {
+
+        StringBuilder hql = new StringBuilder(advtDao.getQueryPartFrom());
+        hql.append("as advt");
+        hql.append(" join FETCH advt.car as car");
+        hql.append(" join FETCH car.body as bodyType");
+        hql.append(" join FETCH car.model as carModel");
+        hql.append(" join FETCH carModel.brand as carBrand");
+        hql.append(" Where 1=1");
+        hql.append(" and advt.verified=:verified");
+        hql.append(" and car.price>=:price_from");
+        hql.append(" and car.price<:price_to");
+        hql.append(" and car.produceYear=:year");
+        hql.append(" and car.transmission=:transmission");
+        hql.append(" and bodyType.id=:body");
+        hql.append(" and carModel.id=:model");
+        hql.append(" and carBrand.id=:brand");
+        searchParams.put("verified", true);
+        advtDao.getByNamedQuery(hql.toString(), searchParams);
+
+        return advtDao.getByNamedQuery(hql.toString(), searchParams);
     }
 
     public List<Advt> getAdvtToVerify() {

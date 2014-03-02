@@ -41,9 +41,10 @@
         <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration"/>
         <property name="hibernateProperties">
             <props>
-                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+                <!--<prop key="hibernate.hbm2ddl.auto">create</prop>-->
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="format_sql">true</prop>
+                <!--<prop key="org.hibernate.envers.store_data_at_delete">true</prop>-->
                 <prop key="hibernate.dialect">${jdbc.dialect}</prop>
                 <prop key="hibernate.connection.CharSet">${connection.charSet}</prop>
                 <prop key="hibernate.connection.characterEncoding">${connection.charSet}</prop>

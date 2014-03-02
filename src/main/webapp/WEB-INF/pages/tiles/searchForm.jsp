@@ -8,7 +8,7 @@
             <h3 class="panel-title"><i class="fa fa-search"></i>Search</h3>
         </div>
         <div class="panel-body">
-            <form name="registration-form" method="post" class="form-inline" action="/searchAdvt">
+            <form name="registration-form" method="post" class="form-inline" action="/carService/searchAdvert/search">
                 <%--BRAND--%>
                 <div class="field-box">
                     <label>Car brand:</label>

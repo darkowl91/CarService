@@ -5,6 +5,7 @@ import com.motors.model.advertisement.Advt;
 import com.motors.programm.nav.Page;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IAdvertService {
 
@@ -24,4 +25,5 @@ public interface IAdvertService {
 
     void deleteAdvt(Advt advt);
 
+    List<Advt> search(Map<String, Object> searchParams);
 }
