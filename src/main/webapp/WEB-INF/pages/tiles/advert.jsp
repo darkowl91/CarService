@@ -5,7 +5,7 @@
 <c:forEach var="advt" items="${PAGE.content}">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-calendar"></i> <spring:message code="advt.header"/> ${advt.date}
+            <h3 class="panel-title"><i class="fa fa-calendar"></i><spring:message code="advt.header"/> ${advt.date}
             </h3>
         </div>
         <div class="panel-body">
@@ -57,8 +57,7 @@
                     </div>
                 </div>
             </div>
-            <a class="btn btn-primary btn-xs pull-right" href="#modal-container-${advt.id}" data-toggle="modal">Learn
-                more</a>
+            <a class="btn btn-primary btn-xs pull-right" href="#modal-container-${advt.id}" data-toggle="modal"><spring:message code="advt.learn.more"/></a>
         </div>
     </div>
     <div class="container">
@@ -97,7 +96,7 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            Mark
+                                          <spring:message code="label.Mark"/>
                                         </td>
                                         <td>
                                                 ${advt.car.model.brand.brandName}
@@ -105,7 +104,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Model
+                                          <spring:message code="label.Model"/>
                                         </td>
                                         <td>
                                                 ${advt.car.model.modelName}
@@ -114,7 +113,7 @@
 
                                     <tr>
                                         <td>
-                                            Produce year
+                                        <spring:message code="label.ProduceYear"/>
                                         </td>
                                         <td>
                                             <script>
@@ -126,7 +125,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Body type
+                                        <spring:message code="label.BodyType"/>
                                         </td>
                                         <td>
                                                 ${advt.car.body.typeName}
@@ -135,7 +134,7 @@
 
                                     <tr>
                                         <td>
-                                            Transmission
+                                        <spring:message code="label.Transmission"/>
                                         </td>
                                         <td>
                                                 ${advt.car.transmission.value}
@@ -144,7 +143,7 @@
 
                                     <tr>
                                         <td>
-                                            Price
+                                        <spring:message code="label.Price"/>
                                         </td>
                                         <td>
                                                 ${advt.car.price}
@@ -152,7 +151,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Additional info
+                                        <spring:message code="label.AdditionalInfo"/>
                                         </td>
                                         <td>
                                                 ${advt.note}

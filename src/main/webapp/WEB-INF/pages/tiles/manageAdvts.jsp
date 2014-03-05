@@ -5,16 +5,16 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
+        <h3 class="panel-title"><i class="fa fa-clock-o"></i><spring:message code="label.recent.activity"/></h3>
     </div>
     <div class="panel-body">
         <table class="table table-hover table-striped tablesorter">
             <thead>
             <tr>
                 <th class="header"></th>
-                <th class="header">Date added <i class="fa fa-sort"></i></th>
-                <th class="header">User <i class="fa fa-sort"></i></th>
-                <th class="header">Car <i class="fa fa-sort"></i></th>
+                <th class="header"><spring:message code="label.date.added"/><i class="fa fa-sort"></i></th>
+                <th class="header"><spring:message code="label.user"/><i class="fa fa-sort"></i></th>
+                <th class="header"><spring:message code="label.auto"/><i class="fa fa-sort"></i></th>
                 <th class="header"></th>
             </tr>
             </thead>
@@ -81,24 +81,24 @@
                                         <table class="table">
                                             <tr>
                                                 <td>
-                                                    Mark
+                                                    <spring:message code="label.Mark"/>
                                                 </td>
                                                 <td>
-                                                    ${advt.car.model.brand.brandName}
+                                                        ${advt.car.model.brand.brandName}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Model
+                                                    <spring:message code="label.Model"/>
                                                 </td>
                                                 <td>
-                                                    ${advt.car.model.modelName}
+                                                        ${advt.car.model.modelName}
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>
-                                                    Produce year
+                                                    <spring:message code="label.ProduceYear"/>
                                                 </td>
                                                 <td>
                                                     <script>
@@ -110,36 +110,36 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Body type
+                                                    <spring:message code="label.BodyType"/>
                                                 </td>
                                                 <td>
-                                                    ${advt.car.body.typeName}
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    Transmission
-                                                </td>
-                                                <td>
-                                                    ${advt.car.transmission.value}
+                                                        ${advt.car.body.typeName}
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>
-                                                    Price
+                                                    <spring:message code="label.Transmission"/>
                                                 </td>
                                                 <td>
-                                                    ${advt.car.price}
+                                                        ${advt.car.transmission.value}
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <spring:message code="label.Price"/>
+                                                </td>
+                                                <td>
+                                                        ${advt.car.price}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Additional info
+                                                    <spring:message code="AdditionalInfo"/>
                                                 </td>
                                                 <td>
-                                                    ${advt.note}
+                                                        ${advt.note}
                                                 </td>
                                             </tr>
                                         </table>

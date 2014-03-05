@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="panel panel-info">
@@ -12,7 +13,7 @@
             <table class="table">
                 <tr>
                     <td>
-                        Car brand:
+                        <spring:message code="label.Mark"/>:
                     </td>
                     <td>
                         <select id="brand" name="brand" class="form-control" onchange="doAjax();">
@@ -30,7 +31,7 @@
 
                 <tr>
                     <td>
-                        Car model:
+                        <spring:message code="label.Model"/>:
                     </td>
                     <td>
                         <select id="model" name="model" class="form-control">
@@ -46,7 +47,7 @@
 
                 <tr>
                     <td>
-                        Car body:
+                        <spring:message code="label.BodyType"/>:
                     </td>
                     <td>
                         <select id="body" name="body" class="form-control">
@@ -62,7 +63,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Transmission:
+                        <spring:message code="label.Transmission"/>:
                     </td>
                     <td>
                         <select id="transmission" name="transmission" class="form-control">

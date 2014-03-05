@@ -21,19 +21,19 @@
 
                             <form method="post" action="<c:url value="/j_spring_security_check"/>" class="form-signin"
                                   role="form">
-                                <h2 class="form-signin-heading">Please sign in</h2>
+                                <h2 class="form-signin-heading"><spring:message code="header.label.signIn"></spring:message> </h2>
 
-                                <input type="text" class="form-control" placeholder="Username" name="j_username"
+                                <input type="text" class="form-control" placeholder="<spring:message code="label.Username"/>" name="j_username"
                                        required="" autofocus="">
 
-                                <input type="password" class="form-control" placeholder="Password" name="j_password"
+                                <input type="password" class="form-control" placeholder="<spring:message code="label.user.password"/>" name="j_password"
                                        required="">
 
                                 <label class="checkbox">
-                                    <input type="checkbox" name="_spring_security_remember_me"/>Remember me
+                                    <input type="checkbox" name="_spring_security_remember_me"/><spring:message code="label.remember.me"/>
                                 </label>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit"
-                                        value="confirm">Sign in
+                                        value="confirm"><spring:message code="header.label.logIn"/>
                                 </button>
                             </form>
 

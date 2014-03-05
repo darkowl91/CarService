@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h3 class="panel-title">User profile settings</h3>
+        <h3 class="panel-title"><spring:message code="label.user.profile.setttings"/></h3>
     </div>
     <div class="panel-body">
 
@@ -22,13 +23,13 @@
             <div class="media-body">
                 <h4 class="media-heading">${user.username}</h4>
 
-                <p>FirstName: ${user.firstName}</p>
+                <p><spring:message code="label.user.name"/>: ${user.firstName}</p>
 
-                <p>LastName: ${user.lastName}</p>
+                <p><spring:message code="label.user.surname"/>: ${user.lastName}</p>
 
-                <p>Email: ${user.email}</p>
+                <p><spring:message code="label.user.email"/>: ${user.email}</p>
 
-                <p>Registration date: ${user.registrationDate}</p>
+                <p><spring:message code="label.user.registration.date"/>: ${user.registrationDate}</p>
             </div>
         </div>
         <br/>
@@ -36,14 +37,14 @@
 
         <form class="form-horizontal" role="form" method="post" action="<c:url value="/editProfile"/>">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Birthday: </label>
+                <label class="col-sm-2 control-label"><spring:message code="label.user.birthday"/>: </label>
 
                 <div class="col-sm-10">
                     <input class="form-control small" type="date" name="birthday" value="${user.birthDay}">
                 </div>
             </div>
 
-            <label class="control-label">Phone: (+375) Belarus </label>
+            <label class="control-label"><spring:message code="label.phone"/>: <spring:message code="label.user.country"/> </label>
             <table class="table">
                 <c:forEach var="i" begin="0" end="2">
                     <tr>
@@ -63,13 +64,13 @@
                             </script>
                         </td>
                         <td>
-                            <label class="control-label">Number:</label>
+                            <label class="control-label"><spring:message code="label.user.phone.number"/>:</label>
                         </td>
                         <td>
                             <input class="form-control" type="tel" name="number_${i}" value="${user.phones[i].phoneValue}">
                         </td>
                         <td>
-                            <label class="control-label">Type:</label>
+                            <label class="control-label"><spring:message code="label.user.phone.type"/>:</label>
                         </td>
                         <td>
                             <select class="form-control" id="type_${i}" name="type_${i}">
@@ -85,8 +86,8 @@
                     </tr>
                 </c:forEach>
             </table>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="reset" class="btn">Clear</button>
+            <button type="submit" class="btn btn-primary"><spring:message code="btn.save"/></button>
+            <button type="reset" class="btn"><spring:message code="btn.clear"/></button>
         </form>
     </div>
 </div>

@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-truck">&nbsp;New car sale </i></h3>
+        <h3 class="panel-title"><i class="fa fa-truck">&nbsp; <spring:message code="label.new.car.sale"/></i></h3>
     </div>
 
     <div class="panel-body">
@@ -12,7 +13,7 @@
             <table class="table">
                 <tr>
                     <td>
-                        Produce year:
+                        <spring:message code="label.ProduceYear"/>:
                     </td>
 
                     <td>
@@ -31,7 +32,7 @@
 
                 <tr>
                     <td>
-                        Price:
+                        <spring:message code="label.Price"/>:
                     </td>
                     <td>
                         <input type="text" name="price" class="form-control">
@@ -40,7 +41,7 @@
 
                 <tr>
                     <td>
-                        Photos:
+                        <spring:message code="label.photos"/>:
                     </td>
                     <td>
                         <input type="file" name="photo" class="form-control" multiple>
@@ -49,7 +50,7 @@
 
                 <tr>
                     <td>
-                        Note:
+                        <spring:message code="AdditionalInfo"/>
                     </td>
                     <td>
                         <textarea class="form-control" name="note" rows="3"></textarea>

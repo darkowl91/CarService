@@ -4,16 +4,16 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
+        <h3 class="panel-title"><i class="fa fa-clock-o"></i><spring:message code="label.new.advrts"/></h3>
     </div>
     <div class="panel-body">
         <table class="table table-hover table-striped tablesorter">
             <thead>
             <tr>
                 <th class="header"></th>
-                <th class="header">Date added <i class="fa fa-sort"></i></th>
-                <th class="header">User <i class="fa fa-sort"></i></th>
-                <th class="header">Car <i class="fa fa-sort"></i></th>
+                <th class="header"><spring:message code="label.date.added"/><i class="fa fa-sort"></i></th>
+                <th class="header"><spring:message code="label.user"/><i class="fa fa-sort"></i></th>
+                <th class="header"><spring:message code="label.auto"/><i class="fa fa-sort"></i></th>
                 <th class="header"></th>
             </tr>
             </thead>
@@ -80,7 +80,7 @@
                                         <table class="table">
                                             <tr>
                                                 <td>
-                                                    Mark
+                                                    <spring:message code="label.Mark"/>
                                                 </td>
                                                 <td>
                                                         ${advt.car.model.brand.brandName}
@@ -88,7 +88,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Model
+                                                    <spring:message code="label.Model"/>
                                                 </td>
                                                 <td>
                                                         ${advt.car.model.modelName}
@@ -97,7 +97,7 @@
 
                                             <tr>
                                                 <td>
-                                                    Produce year
+                                                    <spring:message code="label.ProduceYear"/>
                                                 </td>
                                                 <td>
                                                     <script>
@@ -109,7 +109,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Body type
+                                                    <spring:message code="label.BodyType"/>
                                                 </td>
                                                 <td>
                                                         ${advt.car.body.typeName}
@@ -118,7 +118,7 @@
 
                                             <tr>
                                                 <td>
-                                                    Transmission
+                                                    <spring:message code="label.Transmission"/>
                                                 </td>
                                                 <td>
                                                         ${advt.car.transmission.value}
@@ -127,7 +127,7 @@
 
                                             <tr>
                                                 <td>
-                                                    Price
+                                                    <spring:message code="label.Price"/>
                                                 </td>
                                                 <td>
                                                         ${advt.car.price}
@@ -135,7 +135,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Additional info
+                                                    <spring:message code="AdditionalInfo"/>
                                                 </td>
                                                 <td>
                                                         ${advt.note}

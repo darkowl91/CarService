@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 
 <div class="panel panel-warning">
@@ -11,7 +12,7 @@
             <div class="col-xs-6 text-right">
                 <p class="announcement-heading">${advtToVerifyCount}</p>
 
-                <p class="announcement-text">To-Do Items</p>
+                <p class="announcement-text"><spring:message code="label.to.do.items"/></p>
             </div>
         </div>
     </div>
@@ -19,7 +20,7 @@
         <div class="panel-footer announcement-bottom">
             <div class="row">
                 <div class="col-xs-6">
-                    Complete Tasks
+                    <spring:message code="label.complete.task"/>
                 </div>
                 <div class="col-xs-6 text-right">
                     <i class="fa fa-arrow-circle-right"></i>

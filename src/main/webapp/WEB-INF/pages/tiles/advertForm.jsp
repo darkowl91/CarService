@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="panel panel-info">
     <div class="panel-heading">
@@ -9,21 +10,21 @@
             <form name="registration-form" method="post" action="advert">
                 <%--BRAND--%>
                 <div class="field-box">
-                    <label>Car brand:</label>
+                    <label><spring:message code="label.Mark"/>:</label>
                     <select class="form-control">
                         <option>1</option>
                     </select>
                 </div>
                 <%--BRAND--%>
                 <div class="field-box">
-                    <label>Car model:</label>
+                    <label><spring:message code="label.Model"/>:</label>
                     <select class="form-control">
                         <option>1</option>
                     </select>
                 </div>
                 <%--PRODUCE YEAR--%>
                 <div class="field-box">
-                    <label>Produce year:</label>
+                    <label><spring:message code="label.ProduceYear"/>:</label>
                     <select name="yearpicker" id="yearpicker" class="form-control">
                         <script>
                             var myDate = new Date();
@@ -36,37 +37,37 @@
                 </div>
                 <%--BODY TYPE--%>
                 <div class="field-box">
-                    <label>Body Type:</label>
+                    <label><spring:message code="label.BodyType"/>:</label>
                     <select class="form-control">
                         <option>1</option>
                     </select>
                 </div>
                 <%--TRANSMISSION--%>
                 <div class="field-box">
-                    <label>Transmission:</label>
+                    <label><spring:message code="label.Transmission"/>:</label>
                     <select class="form-control">
                         <option>1</option>
                     </select>
                 </div>
                 <%--PRICE--%>
                 <div class="field-box">
-                    <label>Price:</label>
+                    <label><spring:message code="label.Price"/>:</label>
                     <input class="form-control" type="text">
                 </div>
                 <%--NOTE --%>
                 <div class="field-box">
-                    <label>Note:</label>
+                    <label> <spring:message code="label.AdditionalInfo"/>:</label>
                     <textarea class="form-control" rows="3"></textarea>
                 </div>
 
                 <br/>
-                <button type="submit" class="btn btn-primary">Add</button>
-                <button type="reset" class="btn btn-default">Clear</button>
+                <button type="submit" class="btn btn-primary"><spring:message code="btn.add"/></button>
+                <button type="reset" class="btn btn-default"><spring:message code="btn.clear"/></button>
         </div>
         <div class="col-md-6 column">
             <%--PHOTO--%>
             <div class="field-box">
-                <label>Car Photo:</label>
+                <label><spring:message code="label.photo"/>:</label>
                 <input type="file" class="btn btn-link">
             </div>
 

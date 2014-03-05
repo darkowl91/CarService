@@ -39,7 +39,7 @@
                             class="fa fa-gear"></i><spring:message code="header.label.Settings"/></a></li>
                     <li class="divider"></li>
 
-                    <li><a href="<c:url value="/j_spring_security_logout"/>"><i class="fa fa-power-off"></i>Log Out</a>
+                    <li><a href="<c:url value="/j_spring_security_logout"/>"><i class="fa fa-power-off"></i><spring:message code="label.log.out"/></a>
                     </li>
                 </sec:authorize>
             </ul>
