@@ -8,7 +8,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="${BreadCrumbs.link}"><i class="icon-dashboard"></i>
-                <%--<spring:message code="${BreadCrumbs.value}"/>--%>
+                <spring:message code="${BreadCrumbs.value}"/>
             </a></li>
             <li class="active"><i class="icon-file-alt"></i><spring:message code="label.auto.sale.page.name"/></li>
         </ol>

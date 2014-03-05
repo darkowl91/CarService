@@ -5,6 +5,7 @@ import com.motors.model.BaseEntity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.Set;
 
 @Entity
@@ -12,7 +13,7 @@ import java.util.Set;
 public class Car extends BaseEntity {
 
     @Column(name = "PRODUCE_YEAR")
-    private Date produceYear;
+    private Calendar produceYear;
 
     @Column(name = "PRICE")
     private BigDecimal price;
@@ -32,11 +33,11 @@ public class Car extends BaseEntity {
     public Car() {
     }
 
-    public Date getProduceYear() {
+    public Calendar getProduceYear() {
         return produceYear;
     }
 
-    public void setProduceYear(Date produceYear) {
+    public void setProduceYear(Calendar produceYear) {
         this.produceYear = produceYear;
     }
 
