@@ -13,6 +13,7 @@ import java.util.Set;
 public class Car extends BaseEntity {
 
     @Column(name = "PRODUCE_YEAR")
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar produceYear;
 
     @Column(name = "PRICE")
@@ -33,12 +34,12 @@ public class Car extends BaseEntity {
     public Car() {
     }
 
-    public Calendar getProduceYear() {
-        return produceYear;
+    public int getProduceYear() {
+        return produceYear.get(Calendar.YEAR);
     }
 
-    public void setProduceYear(Calendar produceYear) {
-        this.produceYear = produceYear;
+    public void setProduceYear(int produceYear) {
+        this.produceYear.set(Calendar.YEAR,produceYear);
     }
 
     public BigDecimal getPrice() {

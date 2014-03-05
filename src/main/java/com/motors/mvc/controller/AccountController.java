@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.Principal;
+import java.text.ParseException;
 
 @Controller
 public class AccountController extends BaseController {
@@ -63,7 +64,11 @@ public class AccountController extends BaseController {
             String type = request.getParameter("type_" + i);
             user.getPhones().add(new Phone(operator, number, type, user));
         }
-        user.setBirthDay(DateUtil.getSqlDateByStrValue(birthday));
+        try {
+            user.setBirthDay(DateUtil.parseDate(birthday, DateUtil.PATTERN_DD_MM_YYYY));
+        } catch (ParseException e) {
+            LOG.error("Invalid birth date", e);
+        }
         accountService.saveUser(user);
 
         return "redirect: /carService/profileSettings";
@@ -92,7 +97,7 @@ public class AccountController extends BaseController {
         } catch (IOException e) {
             LOG.error("Upload user photo", e);
         }
-        userInstance.setRegistrationDate(DateUtil.getDateNow());
+        userInstance.setRegistrationDate(DateUtil.getDateTimeNow());
         accountService.saveUser(userInstance);
 
         return "redirect:/carService/register";

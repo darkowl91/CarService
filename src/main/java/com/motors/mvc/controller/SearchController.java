@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +50,12 @@ public class SearchController extends BaseController {
             prms.put("model", Long.valueOf(model));
         }
         if (!year.isEmpty()) {
-            prms.put("year", DateUtil.getSqlDateYear(year));
+            try {
+                long dateYear = DateUtil.parseDate(year, DateUtil.PATTERN_YYYY);
+                prms.put("year", dateYear);
+            } catch (ParseException e) {
+                LOG.error("Invalid produce year", e);
+            }
         }
         if (!body.isEmpty()) {
             prms.put("body", Long.valueOf(body));

@@ -5,7 +5,6 @@ import com.motors.model.advertisement.Advt;
 import com.motors.model.auto.*;
 import com.motors.programm.nav.BreadCrumbs;
 import com.motors.programm.nav.PageImpl;
-import com.motors.programm.util.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,7 +74,7 @@ public class AdvertController extends BaseController {
                                     @RequestParam(value = "note") String note) {
         Advt advt = (Advt) session.getAttribute("advt");
         Car advtCar = advt.getCar();
-        advtCar.setProduceYear(DateUtil.getSqlDateYear(year));
+        advtCar.setProduceYear(Integer.valueOf(year));
         advtCar.setPrice(new BigDecimal(Double.valueOf(price)));
         //TODO: check file size
         try {

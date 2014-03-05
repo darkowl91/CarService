@@ -30,7 +30,7 @@ public class AdvertService implements IAdvertService {
     @Override
     public Advt getNewAdvtInstance(User user) {
         Advt advt = new Advt();
-        advt.setDate(DateUtil.getDateNow());
+        advt.setDate(DateUtil.getDateTimeNow());
         Car car = new Car();
         car.setPictures(new HashSet<CarPicture>());
         advt.setCar(car);

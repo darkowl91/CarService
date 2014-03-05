@@ -6,6 +6,7 @@ import com.motors.model.auto.Car;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "ADVERTISMENT", schema = "carservice")
@@ -24,7 +25,8 @@ public class Advt extends BaseEntity {
     private boolean verified;
 
     @Column(name = "DATE")
-    private Date date;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar date;
 
     public User getUser() {
         return user;
@@ -58,11 +60,11 @@ public class Advt extends BaseEntity {
         this.verified = verified;
     }
 
-    public Date getDate() {
-        return date;
+    public Long getDate() {
+        return date.getTimeInMillis();
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(Long date) {
+        this.date.setTimeInMillis(date);
     }
 }

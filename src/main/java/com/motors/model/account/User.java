@@ -5,6 +5,7 @@ import com.motors.model.advertisement.Advt;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -33,10 +34,11 @@ public class User extends BaseEntity {
     private String lastName;
 
     @Column(name = "BIRTHDAY")
-    private Date birthDay;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar birthDay;
 
     @Column(name = "REGISTRATION_DATE")
-    private Date registrationDate;
+    private Calendar registrationDate;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Phone> phones;
@@ -106,20 +108,20 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
-    public Date getBirthDay() {
-        return birthDay;
+    public long getBirthDay() {
+        return birthDay.getTimeInMillis();
     }
 
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
+    public void setBirthDay(Long birthDay) {
+        this.birthDay.setTimeInMillis(birthDay);
     }
 
-    public Date getRegistrationDate() {
-        return registrationDate;
+    public long getRegistrationDate() {
+        return registrationDate.getTimeInMillis();
     }
 
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
+    public void setRegistrationDate(long registrationDate) {
+        this.registrationDate.setTimeInMillis(registrationDate);
     }
 
     public List<Phone> getPhones() {
