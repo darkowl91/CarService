@@ -5,7 +5,14 @@
 <c:forEach var="advt" items="${PAGE.content}">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-calendar"></i><spring:message code="advt.header"/> ${advt.date}
+            <h3 class="panel-title"><i class="fa fa-calendar"></i><spring:message code="advt.header"/>
+                <script>
+                    var date = new Date(${advt.date});
+                    var theyear = date.getFullYear()
+                    var themonth = date.getMonth() + 1
+                    var thetoday = date.getDate()
+                    document.write(theyear + "-" + themonth + "-" + thetoday);
+                </script>
             </h3>
         </div>
         <div class="panel-body">
@@ -39,12 +46,8 @@
                         <div class="media-body">
                             <h4 class="media-heading">
                                     ${advt.car.model.brand.brandName} ${advt.car.model.modelName}
-                                <script>
-                                    var date = "${advt.car.produceYear}";
-                                    var parts = date.split('-');
-                                    document.write(parts[0]);
-                                </script>
-                                г.
+                                            ${advt.car.produceYear}
+                                        г.
                             </h4>
                             <i class="fa fa-comment"></i>
                             <spring:message code="advt.note"/>:
@@ -116,11 +119,7 @@
                                         <spring:message code="label.ProduceYear"/>
                                         </td>
                                         <td>
-                                            <script>
-                                                var date = "${advt.car.produceYear}";
-                                                var parts = date.split('-');
-                                                document.write(parts[0]);
-                                            </script>
+                                            ${advt.car.produceYear}
                                         </td>
                                     </tr>
                                     <tr>

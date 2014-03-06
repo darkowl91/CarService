@@ -4,7 +4,6 @@ import com.motors.model.BaseEntity;
 import com.motors.model.advertisement.Advt;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 
@@ -50,6 +49,8 @@ public class User extends BaseEntity {
     private List<Advt> advts;
 
     public User() {
+        birthDay = Calendar.getInstance();
+        registrationDate = Calendar.getInstance();
     }
 
     public String getUsername() {

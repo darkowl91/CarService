@@ -4,7 +4,6 @@ import com.motors.model.BaseEntity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.Set;
 
@@ -32,6 +31,7 @@ public class Car extends BaseEntity {
     private Set<CarPicture> pictures;
 
     public Car() {
+        produceYear = Calendar.getInstance();
     }
 
     public int getProduceYear() {

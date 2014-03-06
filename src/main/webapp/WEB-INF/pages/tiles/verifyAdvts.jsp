@@ -100,11 +100,7 @@
                                                     <spring:message code="label.ProduceYear"/>
                                                 </td>
                                                 <td>
-                                                    <script>
-                                                        var date = "${advt.car.produceYear}";
-                                                        var parts = date.split('-');
-                                                        document.write(parts[0]);
-                                                    </script>
+                                                    ${advt.car.produceYear}
                                                 </td>
                                             </tr>
                                             <tr>

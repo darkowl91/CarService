@@ -28,6 +28,10 @@ public class Advt extends BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
 
+    public Advt() {
+        date = Calendar.getInstance();
+    }
+
     public User getUser() {
         return user;
     }
