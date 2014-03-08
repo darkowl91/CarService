@@ -11,13 +11,15 @@ public final class DateUtil {
     public static final String PATTERN_YYYY = "YYYY";
 
 
-    public static long parseDate(String dateStr, String pattern) throws ParseException {
+    public static Calendar parseDate(String dateStr, String pattern) throws ParseException {
         DateFormat df = new SimpleDateFormat(pattern);
-        return df.parse(dateStr).getTime();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(df.parse(dateStr));
+        return calendar;
     }
 
-    public static Long getDateTimeNow() {
-        return Calendar.getInstance().getTimeInMillis();
+    public static Calendar getDateTimeNow() {
+        return Calendar.getInstance();
     }
 
 

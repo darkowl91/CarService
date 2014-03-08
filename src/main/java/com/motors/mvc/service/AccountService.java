@@ -37,7 +37,7 @@ public class AccountService implements IAccountService {
         user.setPicture(new UserPicture());
         List<Authority> authorities = new ArrayList<Authority>();
         authorities.add(new Authority(roleName, user));
-        user.setAuthority(authorities);
+        user.setAuthorities(authorities);
         List<Phone> phoneList = new ArrayList<Phone>();
         user.setPhones(phoneList);
         user.setEnabled(true);

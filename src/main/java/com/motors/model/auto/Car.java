@@ -31,15 +31,14 @@ public class Car extends BaseEntity {
     private Set<CarPicture> pictures;
 
     public Car() {
-        produceYear = Calendar.getInstance();
     }
 
-    public int getProduceYear() {
-        return produceYear.get(Calendar.YEAR);
+    public Calendar getProduceYear() {
+        return produceYear;
     }
 
-    public void setProduceYear(int produceYear) {
-        this.produceYear.set(Calendar.YEAR,produceYear);
+    public void setProduceYear(Calendar produceYear) {
+        this.produceYear = produceYear;
     }
 
     public BigDecimal getPrice() {

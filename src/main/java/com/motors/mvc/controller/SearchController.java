@@ -51,8 +51,7 @@ public class SearchController extends BaseController {
         }
         if (!year.isEmpty()) {
             try {
-                long dateYear = DateUtil.parseDate(year, DateUtil.PATTERN_YYYY);
-                prms.put("year", dateYear);
+                prms.put("year", DateUtil.parseDate(year, DateUtil.PATTERN_YYYY));
             } catch (ParseException e) {
                 LOG.error("Invalid produce year", e);
             }

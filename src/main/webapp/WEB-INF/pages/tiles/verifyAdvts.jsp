@@ -100,7 +100,11 @@
                                                     <spring:message code="label.ProduceYear"/>
                                                 </td>
                                                 <td>
-                                                    ${advt.car.produceYear}
+                                                    <script>
+                                                        var date = new Date(${advt.car.produceYear.getTimeInMillis()});
+                                                        var theyear = date.getFullYear()
+                                                        document.write(theyear);
+                                                    </script>
                                                 </td>
                                             </tr>
                                             <tr>

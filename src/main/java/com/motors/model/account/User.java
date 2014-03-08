@@ -49,8 +49,6 @@ public class User extends BaseEntity {
     private List<Advt> advts;
 
     public User() {
-        birthDay = Calendar.getInstance();
-        registrationDate = Calendar.getInstance();
     }
 
     public String getUsername() {
@@ -109,20 +107,20 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
-    public long getBirthDay() {
-        return birthDay.getTimeInMillis();
+    public Calendar getBirthDay() {
+        return birthDay;
     }
 
-    public void setBirthDay(Long birthDay) {
-        this.birthDay.setTimeInMillis(birthDay);
+    public void setBirthDay(Calendar birthDay) {
+        this.birthDay = birthDay;
     }
 
-    public long getRegistrationDate() {
-        return registrationDate.getTimeInMillis();
+    public Calendar getRegistrationDate() {
+        return registrationDate;
     }
 
-    public void setRegistrationDate(long registrationDate) {
-        this.registrationDate.setTimeInMillis(registrationDate);
+    public void setRegistrationDate(Calendar registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
     public List<Phone> getPhones() {
@@ -133,12 +131,12 @@ public class User extends BaseEntity {
         this.phones = phones;
     }
 
-    public List<Authority> getAuthority() {
+    public List<Authority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthority(List<Authority> authority) {
-        this.authorities = authority;
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
     }
 
     public List<Advt> getAdvts() {

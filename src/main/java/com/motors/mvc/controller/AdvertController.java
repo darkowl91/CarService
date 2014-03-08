@@ -5,6 +5,7 @@ import com.motors.model.advertisement.Advt;
 import com.motors.model.auto.*;
 import com.motors.programm.nav.BreadCrumbs;
 import com.motors.programm.nav.PageImpl;
+import com.motors.programm.util.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.util.List;
 
 @Controller
@@ -71,10 +73,10 @@ public class AdvertController extends BaseController {
                                     @RequestParam(value = "year") String year,
                                     @RequestParam(value = "price") String price,
                                     @RequestParam(value = "photo") List<MultipartFile> photos,
-                                    @RequestParam(value = "note") String note) {
+                                    @RequestParam(value = "note") String note) throws ParseException {
         Advt advt = (Advt) session.getAttribute("advt");
         Car advtCar = advt.getCar();
-        advtCar.setProduceYear(Integer.valueOf(year));
+        advtCar.setProduceYear(DateUtil.parseDate(year, DateUtil.PATTERN_YYYY));
         advtCar.setPrice(new BigDecimal(Double.valueOf(price)));
         //TODO: check file size
         try {

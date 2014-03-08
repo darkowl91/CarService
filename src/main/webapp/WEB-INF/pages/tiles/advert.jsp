@@ -7,7 +7,7 @@
         <div class="panel-heading">
             <h3 class="panel-title"><i class="fa fa-calendar"></i><spring:message code="advt.header"/>
                 <script>
-                    var date = new Date(${advt.date});
+                    var date = new Date(${advt.date.getTimeInMillis()});
                     var theyear = date.getFullYear()
                     var themonth = date.getMonth() + 1
                     var thetoday = date.getDate()
@@ -46,7 +46,12 @@
                         <div class="media-body">
                             <h4 class="media-heading">
                                     ${advt.car.model.brand.brandName} ${advt.car.model.modelName}
-                                            ${advt.car.produceYear}
+                                            ${advt.car.model.brand.brandName} ${advt.car.model.modelName}
+                                        <script>
+                                            var date = new Date(${advt.car.produceYear.getTimeInMillis()});
+                                            var theyear = date.getFullYear()
+                                            document.write(theyear);
+                                        </script>
                                         г.
                             </h4>
                             <i class="fa fa-comment"></i>
@@ -119,7 +124,11 @@
                                         <spring:message code="label.ProduceYear"/>
                                         </td>
                                         <td>
-                                            ${advt.car.produceYear}
+                                            <script>
+                                                var date = new Date(${advt.car.produceYear.getTimeInMillis()});
+                                                var theyear = date.getFullYear()
+                                                document.write(theyear);
+                                            </script>
                                         </td>
                                     </tr>
                                     <tr>

@@ -5,7 +5,6 @@ import com.motors.model.account.User;
 import com.motors.model.auto.Car;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.Calendar;
 
 @Entity
@@ -29,7 +28,7 @@ public class Advt extends BaseEntity {
     private Calendar date;
 
     public Advt() {
-        date = Calendar.getInstance();
+
     }
 
     public User getUser() {
@@ -64,11 +63,12 @@ public class Advt extends BaseEntity {
         this.verified = verified;
     }
 
-    public Long getDate() {
-        return date.getTimeInMillis();
+    public Calendar getDate() {
+        return date;
     }
 
-    public void setDate(Long date) {
-        this.date.setTimeInMillis(date);
+    public void setDate(Calendar date) {
+        this.date = date;
+
     }
 }
