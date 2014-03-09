@@ -29,7 +29,15 @@
 
                 <p><spring:message code="label.user.email"/>: ${user.email}</p>
 
-                <p><spring:message code="label.user.registration.date"/>: ${user.registrationDate}</p>
+                <p><spring:message code="label.user.registration.date"/>:
+                    <script>
+                        var date = new Date(${user.registrationDate.getTimeInMillis()});
+                        var theyear = date.getFullYear()
+                        var themonth = date.getMonth() + 1
+                        var thetoday = date.getDate()
+                        document.write(theyear + "-" + themonth + "-" + thetoday);
+                    </script>
+                 </p>
             </div>
         </div>
         <br/>
