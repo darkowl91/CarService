@@ -19,7 +19,6 @@
             </tr>
             </thead>
             <tbody>
-            <%--<form method="post" action="<c:out value="/advtDelete"/>" role="form">--%>
             <c:forEach var="advt" items="${advtToDelete}">
                 <tr>
                     <td>
@@ -36,7 +35,6 @@
                     </td>
                 </tr>
             </c:forEach>
-            <%--</form>--%>
             </tbody>
         </table>
 

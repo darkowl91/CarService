@@ -35,7 +35,7 @@
                         <spring:message code="label.Price"/>:
                     </td>
                     <td>
-                        <input type="text" name="price" class="form-control">
+                        <input type="text" name="price" class="form-control" required="">
                     </td>
                 </tr>
 
@@ -44,7 +44,7 @@
                         <spring:message code="label.photos"/>:
                     </td>
                     <td>
-                        <input type="file" name="photo" class="form-control" multiple>
+                        <input type="file" name="photo" class="form-control" multiple required="">
                     </td>
                 </tr>
 

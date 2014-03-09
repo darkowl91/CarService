@@ -18,7 +18,7 @@
         <sec:authorize access="hasRole('ROLE_USER')">
         <li id="sale">
             <a href="<c:url value="/carService/sale"/>" class="list-group-item"><i class="fa fa-angle-left">
-                <spring:message code="label.advertisements"/></i></a>
+                <spring:message code="label.advertisements.sale"/></i></a>
         </li>
         </sec:authorize>
 

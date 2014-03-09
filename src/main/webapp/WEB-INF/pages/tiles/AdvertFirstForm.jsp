@@ -79,8 +79,7 @@
             </table>
             <div class="pull-right">
                 <ul class="pager">
-                    <li><a href="#" onclick="$('#firstStep').submit();">Next&nbsp;<i
-                            class="fa fa-arrow-circle-right"></i></a></li>
+                    <li><a href="#" onclick="$('#firstStep').submit(); ">Next&nbsp;<i class="fa fa-arrow-circle-right"></i></a></li>
                 </ul>
             </div>
         </form>

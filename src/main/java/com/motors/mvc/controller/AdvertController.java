@@ -51,14 +51,20 @@ public class AdvertController extends BaseController {
 
     @RequestMapping(value = "/next")
     public String newAdvert(HttpSession session,
-                            @RequestParam(value = "brand") String mark,
-                            @RequestParam(value = "model") String model,
-                            @RequestParam(value = "body") String body,
-                            @RequestParam(value = "transmission") String transmission) {
+                            @RequestParam(value = "brand", required = false) String mark,
+                            @RequestParam(value = "model", required = false) String model,
+                            @RequestParam(value = "body", required = false) String body,
+                            @RequestParam(value = "transmission",required = false) String transmission) {
         Advt advt = (Advt) session.getAttribute("advt");
-        advt.getCar().setBody(carService.getBodyTypeById(Long.valueOf(body)));
-        advt.getCar().setModel(carService.getCarModelById(Long.valueOf(model)));
-        advt.getCar().setTransmission(Transmission.valueOf(transmission));
+        if (!body.isEmpty()) {
+            advt.getCar().setBody(carService.getBodyTypeById(Long.valueOf(body)));
+        }
+        if (model!=null) {
+            advt.getCar().setModel(carService.getCarModelById(Long.valueOf(model)));
+        }
+        if (transmission!=null) {
+            advt.getCar().setTransmission(Transmission.valueOf(transmission));
+        }
         return "redirect:/carService/sale/next";
     }
 
@@ -70,14 +76,18 @@ public class AdvertController extends BaseController {
 
     @RequestMapping(value = "/next/next")
     public String newAdvertNextNext(HttpSession session,
-                                    @RequestParam(value = "year") String year,
-                                    @RequestParam(value = "price") String price,
-                                    @RequestParam(value = "photo") List<MultipartFile> photos,
-                                    @RequestParam(value = "note") String note) throws ParseException {
+                                    @RequestParam(value = "year", required = false) String year,
+                                    @RequestParam(value = "price", required = false) String price,
+                                    @RequestParam(value = "photo", required = false) List<MultipartFile> photos,
+                                    @RequestParam(value = "note", required = false) String note) throws ParseException {
         Advt advt = (Advt) session.getAttribute("advt");
         Car advtCar = advt.getCar();
-        advtCar.setProduceYear(DateUtil.parseDate(year, DateUtil.PATTERN_YYYY));
-        advtCar.setPrice(new BigDecimal(Double.valueOf(price)));
+        if (year!=null) {
+            advtCar.setProduceYear(DateUtil.parseDate(year, DateUtil.PATTERN_YYYY));
+        }
+        if (price!=null && !price.isEmpty()) {
+            advtCar.setPrice(new BigDecimal(Double.valueOf(price)));
+        }
         //TODO: check file size
         try {
             for (MultipartFile photo : photos) {
