@@ -84,6 +84,7 @@ public abstract class BaseEntityDao<T extends BaseEntity> implements IEntityDao<
     public Page<T> getPage(int pageNumber, int pageSize, String orderBy) {
         long totalNumber = getCount();
         Query query = getCurrentSession().createQuery(getQueryPartFrom() + orderBy );
+        query.setParameter("verified", true);
         int firstResult = (pageNumber - 1) * pageSize;
         query.setFirstResult(firstResult);
         query.setMaxResults(pageSize);

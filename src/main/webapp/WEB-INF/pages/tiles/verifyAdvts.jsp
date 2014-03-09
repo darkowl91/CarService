@@ -25,7 +25,15 @@
                             <a href="/advtVerify?advtId=${advt.id}"><i class="fa fa-edit"></i></a>
                             <%--<input name="verifyAdvt_${advt.id}" type="checkbox" value="${advt.id}" onclick="submit();">--%>
                         </td>
-                        <td>${advt.date}</td>
+                        <td>
+                            <script>
+                                var date = new Date(${advt.date.getTimeInMillis()});
+                                var theyear = date.getFullYear()
+                                var themonth = date.getMonth() + 1
+                                var thetoday = date.getDate()
+                                document.write(theyear + "-" + themonth + "-" + thetoday);
+                            </script>
+                        </td>
                         <td>${advt.user.firstName} ${advt.user.lastName}</td>
                         <td>${advt.car.model.brand.brandName} ${advt.car.model.modelName}</td>
                         <td>
@@ -52,7 +60,14 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
                                         </button>
                                         <h4 class="modal-title" id="myModalLabel">
-                                            <spring:message code="advt.header"/> ${advt.date}
+                                            <spring:message code="advt.header"/>
+                                            <script>
+                                                var date = new Date(${advt.date.getTimeInMillis()});
+                                                var theyear = date.getFullYear()
+                                                var themonth = date.getMonth() + 1
+                                                var thetoday = date.getDate()
+                                                document.write(theyear + "-" + themonth + "-" + thetoday);
+                                            </script>
                                         </h4>
                                     </div>
                                     <div class="modal-body">

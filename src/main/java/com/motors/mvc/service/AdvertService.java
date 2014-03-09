@@ -51,7 +51,7 @@ public class AdvertService implements IAdvertService {
 
     @Override
     public Page getNextPage(int pageNumber, int pageSize){
-        return advtDao.getPage(pageNumber, pageSize, "order by date asc");
+        return advtDao.getPage(pageNumber, pageSize, "Where verified=:verified order by date asc");
     }
 
     @Override

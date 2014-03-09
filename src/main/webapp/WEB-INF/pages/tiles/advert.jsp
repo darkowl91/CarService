@@ -78,7 +78,14 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 <h4 class="modal-title" id="myModalLabel">
-                                    <spring:message code="advt.header"/> ${advt.date}
+                                    <spring:message code="advt.header"/>
+                                    <script>
+                                        var date = new Date(${advt.date.getTimeInMillis()});
+                                        var theyear = date.getFullYear()
+                                        var themonth = date.getMonth() + 1
+                                        var thetoday = date.getDate()
+                                        document.write(theyear + "-" + themonth + "-" + thetoday);
+                                    </script>
                                 </h4>
                             </div>
                             <div class="modal-body">
