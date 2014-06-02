@@ -81,6 +81,9 @@ public class AdvertController extends BaseController {
                                     @RequestParam(value = "photo", required = false) List<MultipartFile> photos,
                                     @RequestParam(value = "note", required = false) String note) throws ParseException {
         Advt advt = (Advt) session.getAttribute("advt");
+        if (advt == null){
+            return "redirect:/carService/sale/next";
+        }
         Car advtCar = advt.getCar();
         if (year != null) {
             advtCar.setProduceYear(DateUtil.parseDate(year, DateUtil.PATTERN_YYYY));

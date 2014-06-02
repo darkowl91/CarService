@@ -17,7 +17,7 @@
                     </td>
 
                     <td>
-                        <select name="year" class="form-control">
+                        <select name="year" class="form-control" required>
                             <script>
                                 var myDate = new Date();
                                 var year = myDate.getFullYear();
@@ -53,7 +53,7 @@
                         <spring:message code="AdditionalInfo"/>
                     </td>
                     <td>
-                        <textarea class="form-control" name="note" rows="3"></textarea>
+                        <textarea class="form-control" name="note" rows="3" required></textarea>
                     </td>
                 </tr>
             </table>

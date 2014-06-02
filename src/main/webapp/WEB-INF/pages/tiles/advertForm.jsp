@@ -25,7 +25,7 @@
                 <%--PRODUCE YEAR--%>
                 <div class="field-box">
                     <label><spring:message code="label.ProduceYear"/>:</label>
-                    <select name="yearpicker" id="yearpicker" class="form-control">
+                    <select name="yearpicker" id="yearpicker" required class="form-control">
                         <script>
                             var myDate = new Date();
                             var year = myDate.getFullYear();
@@ -38,26 +38,26 @@
                 <%--BODY TYPE--%>
                 <div class="field-box">
                     <label><spring:message code="label.BodyType"/>:</label>
-                    <select class="form-control">
+                    <select class="form-control required" required>
                         <option>1</option>
                     </select>
                 </div>
                 <%--TRANSMISSION--%>
                 <div class="field-box">
                     <label><spring:message code="label.Transmission"/>:</label>
-                    <select class="form-control">
+                    <select class="form-control" required>
                         <option>1</option>
                     </select>
                 </div>
                 <%--PRICE--%>
                 <div class="field-box">
                     <label><spring:message code="label.Price"/>:</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" required>
                 </div>
                 <%--NOTE --%>
                 <div class="field-box">
                     <label> <spring:message code="label.AdditionalInfo"/>:</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" required></textarea>
                 </div>
 
                 <br/>
@@ -68,7 +68,7 @@
             <%--PHOTO--%>
             <div class="field-box">
                 <label><spring:message code="label.photo"/>:</label>
-                <input type="file" class="btn btn-link">
+                <input type="file" class="btn btn-link" required>
             </div>
 
             <div class="row clearfix bottom well">

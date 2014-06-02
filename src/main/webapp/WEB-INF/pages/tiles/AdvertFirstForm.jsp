@@ -4,7 +4,7 @@
 
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-truck">&nbsp;New car sale </i></h3>
+        <h3 class="panel-title"><i class="fa fa-truck">&nbsp;<spring:message code="label.new.car.sale"/></i></h3>
 
     </div>
     <div class="panel-body">
@@ -16,7 +16,7 @@
                         <spring:message code="label.Mark"/>:
                     </td>
                     <td>
-                        <select id="brand" name="brand" class="form-control" onchange="doAjax();">
+                        <select id="brand" name="brand"  required class="form-control" onchange="doAjax();">
                             <option></option>
                             <c:forEach var="carBrand" items="${brands}">
                                 <option value="${carBrand.id}">${carBrand.brandName}</option>
@@ -34,7 +34,7 @@
                         <spring:message code="label.Model"/>:
                     </td>
                     <td>
-                        <select id="model" name="model" class="form-control">
+                        <select id="model" name="model" required class="form-control">
                             <c:forEach var="model" items="${advt.car.model.brand.models}">
                                 <option value="${model.id}">${model.modelName}</option>
                             </c:forEach>
@@ -50,7 +50,7 @@
                         <spring:message code="label.BodyType"/>:
                     </td>
                     <td>
-                        <select id="body" name="body" class="form-control">
+                        <select id="body" name="body" required class="form-control">
                             <option></option>
                             <c:forEach var="body" items="${bodyTypes}">
                                 <option value="${body.id}">${body.typeName}</option>
@@ -66,7 +66,7 @@
                         <spring:message code="label.Transmission"/>:
                     </td>
                     <td>
-                        <select id="transmission" name="transmission" class="form-control">
+                        <select id="transmission" required name="transmission" class="form-control">
                             <c:forEach var="transmission" items="${transmissions}">
                                 <option value="${transmission}">${transmission.value}</option>
                             </c:forEach>

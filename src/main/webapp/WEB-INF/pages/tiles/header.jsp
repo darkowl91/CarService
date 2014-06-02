@@ -7,7 +7,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
     <div class="navbar-header">
-        <a class="navbar-brand" href="index.html"><spring:message code="header.label.brand"/></a>
+        <a class="navbar-brand" href="<c:url value="/"/>"><spring:message code="header.label.brand"/></a>
     </div>
 
     <ul class="nav navbar-nav navbar-right navbar-user">
