@@ -10,6 +10,8 @@ import javax.persistence.Table;
 @Table(name = "BODY_TYPE", schema = "carservice")
 public class BodyType extends BaseEntity {
 
+    private static final long serialVersionUID = -4155369502215038246L;
+
     @Column(name = "TYPE_NAME")
     private String typeName;
 

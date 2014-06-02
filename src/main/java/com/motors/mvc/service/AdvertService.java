@@ -50,7 +50,7 @@ public class AdvertService implements IAdvertService {
     }
 
     @Override
-    public Page getNextPage(int pageNumber, int pageSize){
+    public Page getNextPage(int pageNumber, int pageSize) {
         return advtDao.getPage(pageNumber, pageSize, "Where verified=:verified order by date asc");
     }
 
@@ -61,13 +61,13 @@ public class AdvertService implements IAdvertService {
         hql.append("as advt");
         hql.append(" join FETCH advt.car as car");
 
-        if(searchParams.get("body")!= null){
+        if (searchParams.get("body") != null) {
             hql.append(" join FETCH car.body as bodyType");
         }
-        if(searchParams.get("model")!=null || searchParams.get("brand")!=null ){
-        hql.append(" join FETCH car.model as carModel");
+        if (searchParams.get("model") != null || searchParams.get("brand") != null) {
+            hql.append(" join FETCH car.model as carModel");
         }
-        if(searchParams.get("brand")!=null){
+        if (searchParams.get("brand") != null) {
             hql.append(" join FETCH carModel.brand as carBrand");
         }
         hql.append(" Where 1=1");
@@ -75,17 +75,17 @@ public class AdvertService implements IAdvertService {
         hql.append(" and car.price>=:price_from");
         hql.append(" and car.price<:price_to");
         hql.append(" and car.produceYear=:year");
-        if(searchParams.get("transmission")!=null){
+        if (searchParams.get("transmission") != null) {
             hql.append(" and car.transmission=:transmission");
         }
-        if(searchParams.get("body")!= null){
+        if (searchParams.get("body") != null) {
             hql.append(" and bodyType.id=:body");
         }
-        if(searchParams.get("model")!=null){
-        hql.append(" and carModel.id=:model");
+        if (searchParams.get("model") != null) {
+            hql.append(" and carModel.id=:model");
         }
-        if(searchParams.get("brand")!=null){
-        hql.append(" and carBrand.id=:brand");
+        if (searchParams.get("brand") != null) {
+            hql.append(" and carBrand.id=:brand");
         }
 
         searchParams.put("verified", true);
@@ -104,12 +104,12 @@ public class AdvertService implements IAdvertService {
     }
 
     @Override
-    public  List<Advt> getAdvtToDelete(){
+    public List<Advt> getAdvtToDelete() {
         return advtDao.getByNamedQuery(advtDao.getQueryPartFrom() + "WHERE " + "verified=:verified", true);
     }
 
     @Override
-    public void deleteAdvt(Advt advt){
+    public void deleteAdvt(Advt advt) {
         advtDao.remove(advt);
     }
 }

@@ -54,15 +54,15 @@ public class AdvertController extends BaseController {
                             @RequestParam(value = "brand", required = false) String mark,
                             @RequestParam(value = "model", required = false) String model,
                             @RequestParam(value = "body", required = false) String body,
-                            @RequestParam(value = "transmission",required = false) String transmission) {
+                            @RequestParam(value = "transmission", required = false) String transmission) {
         Advt advt = (Advt) session.getAttribute("advt");
         if (!body.isEmpty()) {
             advt.getCar().setBody(carService.getBodyTypeById(Long.valueOf(body)));
         }
-        if (model!=null) {
+        if (model != null) {
             advt.getCar().setModel(carService.getCarModelById(Long.valueOf(model)));
         }
-        if (transmission!=null) {
+        if (transmission != null) {
             advt.getCar().setTransmission(Transmission.valueOf(transmission));
         }
         return "redirect:/carService/sale/next";
@@ -82,10 +82,10 @@ public class AdvertController extends BaseController {
                                     @RequestParam(value = "note", required = false) String note) throws ParseException {
         Advt advt = (Advt) session.getAttribute("advt");
         Car advtCar = advt.getCar();
-        if (year!=null) {
+        if (year != null) {
             advtCar.setProduceYear(DateUtil.parseDate(year, DateUtil.PATTERN_YYYY));
         }
-        if (price!=null && !price.isEmpty()) {
+        if (price != null && !price.isEmpty()) {
             advtCar.setPrice(new BigDecimal(Double.valueOf(price)));
         }
         //TODO: check file size

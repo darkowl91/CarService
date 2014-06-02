@@ -11,6 +11,8 @@ import java.util.Set;
 @Table(name = "CAR", schema = "carservice")
 public class Car extends BaseEntity {
 
+    private static final long serialVersionUID = 8459123310371551073L;
+
     @Column(name = "PRODUCE_YEAR")
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar produceYear;

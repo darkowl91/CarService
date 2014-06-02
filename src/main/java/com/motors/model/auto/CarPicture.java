@@ -9,6 +9,8 @@ import javax.persistence.*;
 @Table(name = "CAR_PICTURE", schema = "carservice")
 public class CarPicture extends BaseEntity {
 
+    private static final long serialVersionUID = 7740620572820816955L;
+
     @Column(name = "PICTURE_NAME")
     private String pictureName;
 

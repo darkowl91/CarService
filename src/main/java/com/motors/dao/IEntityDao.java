@@ -14,7 +14,7 @@ public interface IEntityDao<T extends BaseEntity> {
 
     void saveUpdate(T baseEntity);
 
-    void save (T baseEntity);
+    void save(T baseEntity);
 
     void remove(T baseEntity);
 

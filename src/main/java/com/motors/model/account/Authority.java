@@ -10,9 +10,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "AUTHORITIES", schema = "carservice")
 public class Authority extends BaseEntity {
+
     public static final String ROLE_USER = "ROLE_USER";
     public static final String ROLE_ADMIN = "ROLE_ADMIN";
     public static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
+
+    private static final long serialVersionUID = 4452042213427605384L;
 
     @Column(name = "AUTHORITY")
     private String authority;

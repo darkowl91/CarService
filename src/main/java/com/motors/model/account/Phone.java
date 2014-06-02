@@ -11,6 +11,8 @@ import javax.persistence.Table;
 @Table(name = "PHONE", schema = "carservice")
 public class Phone extends BaseEntity {
 
+    private static final long serialVersionUID = 3505130549585444614L;
+
     @Column(name = "OPERATOR")
     private String operator;
 

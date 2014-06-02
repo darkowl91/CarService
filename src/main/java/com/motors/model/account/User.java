@@ -11,6 +11,8 @@ import java.util.List;
 @Table(name = "USER", schema = "carservice")
 public class User extends BaseEntity {
 
+    private static final long serialVersionUID = 2830462710444275740L;
+
     @Column(name = "USERNAME")
     private String username;
 

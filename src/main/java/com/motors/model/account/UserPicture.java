@@ -12,6 +12,8 @@ import javax.persistence.Transient;
 @Table(name = "USER_PICTURE", schema = "carservice")
 public class UserPicture extends BaseEntity {
 
+    private static final long serialVersionUID = 5938238834247670972L;
+
     @Column(name = "PICTURE_NAME")
     private String pictureName;
 

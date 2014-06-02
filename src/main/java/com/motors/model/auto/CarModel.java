@@ -12,6 +12,8 @@ import javax.persistence.Table;
 @Table(name = "CAR_MODEL", schema = "carservice")
 public class CarModel extends BaseEntity {
 
+    private static final long serialVersionUID = -1629135784926404462L;
+
     @JsonIgnore
     @ManyToOne
     private CarBrand brand;

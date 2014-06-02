@@ -11,10 +11,12 @@ import java.util.Calendar;
 @Table(name = "ADVERTISMENT", schema = "carservice")
 public class Advt extends BaseEntity {
 
-    @ManyToOne(cascade = CascadeType.MERGE )
+    private static final long serialVersionUID = 2347590124365943405L;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
     private User user;
 
-    @OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Car car;
 
     @Column(name = "NOTE")

@@ -9,6 +9,8 @@ import java.util.List;
 @Table(name = "CAR_BRAND", schema = "carservice")
 public class CarBrand extends BaseEntity {
 
+    private static final long serialVersionUID = -4567263216385823455L;
+
     @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER)
     private List<CarModel> models;
 

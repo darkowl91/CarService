@@ -71,7 +71,7 @@ public class SearchController extends BaseController {
 
         List<Advt> advts = advertService.search(prms);
 
-        Page<Advt> page = new PageImpl<Advt>(advts,1,advts.size(),advts.size());
+        Page<Advt> page = new PageImpl<Advt>(advts, 1, advts.size(), advts.size());
         modelMap.put(PageImpl.BEAN_NAME, page);
         modelMap.put("brands", carService.getAvailableBrands());
         modelMap.put("bodyTypes", carService.getAvailableBodyTypes());

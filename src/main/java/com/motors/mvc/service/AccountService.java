@@ -27,7 +27,7 @@ public class AccountService implements IAccountService {
 
     @Override
     public User getLoginPerson(String login) {
-        List<User> users = userDao.getByNamedQuery(userDao.getQueryPartFrom() +"WHERE username=:login", login);
+        List<User> users = userDao.getByNamedQuery(userDao.getQueryPartFrom() + "WHERE username=:login", login);
         return users.get(0);
     }
 
